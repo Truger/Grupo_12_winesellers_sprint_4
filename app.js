@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port= process.env.PORT;
 const path = require("path");
-const publicPatch = path.resolve(__dirname, "./public");
+/*const publicPatch = path.resolve(__dirname, "./public");*/
 const userRouter = require('./routes/userRouter');
 app.use(express.static("./public"));
 app.set('view engine', 'ejs');
