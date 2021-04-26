@@ -10,16 +10,16 @@ app.set('view engine', 'ejs');
 app.use("/user", userRouter);
 
 app.get("/", (req, res) => { 
-    res.sendFile(path.join(__dirname, "/views/home.html")) 
+    res.render('home') 
 });
 
 app.get("/cart", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/cart.html")) 
+    res.render('cart')
 });
 
 app.get("/productDetails", (req, res) => {
-     res.sendFile(path.join(__dirname, "/views/productDetails.html")) 
-    });
+     res.render('productDetails') 
+});
 
 app.use((req, res, next) =>{
     res.status(404).render('page_404');

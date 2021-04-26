@@ -1,29 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta de Vinos</title>
-    <link rel='stylesheet' href='../css/normalize.css' />
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Bebas+Neue&family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
 
-</head>
+    <%- include('partials/head')%>
+
 <body>
-    <header>
-        <div>
-            <a href="/user/login">Ingresar</a>
-            <span>/</span>
-            <a href="/user/register">Registrarse</a>
-            <i class="fas fa-address-card"></i>
-            <img src="/img/Logo.jpg">
-            <p></p>
+    
+    <%- include('partials/header')%>
 
-        </div>
-    </header>
     <main>
     <div id='container'>
         <div class="titular">
@@ -48,8 +31,8 @@
 
     </div>
 </main>
-<footer>
 
-</footer>
+<%- include('partials/footer')%>
+
 </body>
 </html>
