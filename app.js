@@ -4,7 +4,7 @@ const port= process.env.PORT;
 const path = require("path");
 /*const publicPatch = path.resolve(__dirname, "./public");*/
 const userRouter = require('./routes/userRouter');
-app.use(express.static("./public"));
+app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 app.use("/user", userRouter);
