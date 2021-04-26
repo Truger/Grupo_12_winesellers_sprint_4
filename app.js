@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port= 3001
+const port= process.env.PORT;
 const path = require("path");
 const publicPatch = path.resolve(__dirname, "./public");
 const userRouter = require('./routes/userRouter');
@@ -25,6 +25,6 @@ app.use((req, res, next) =>{
     res.status(404).render('page_404');
 });   
 
-app.listen(port, () => {
+app.listen(port|| 3000, () => {
     console.log('Listening on port'+port);
 });
