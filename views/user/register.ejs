@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <%- include('partials/head')%>
+
+<%- include('../partials/head')%>
 
 <body>
-
-    <%- include('partials/header')%>
-
-    <main>
-
-    <div id='container'>
-        <div class="titular">
-            <h2 class="titulo">.Registrate</h2>
+    <div id="wrapper">
+        <div class="headero">
+            <%- include('../partials/header')%>
         </div>
-        <div class='register'>
-           <form>
-            <div class="r-name">
-                <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:' required />
-             </div>
-            <div class="r-lasName">
-                <input type='text' name='lasName' minlength="3" maxlength="20" placeholder='apellido:' required />
-            </div>
-            <div class="r-date">
-                <input type='date' name='date' placeholder='Fecha Nac:' required />
-            </div>
-            <div class="r-email">
-                <input type='email'name='email' placeholder='Email:' required />
-            </div>
-            <div class="r-password">
-                <input type='password'name='password' minlength="8" maxlength="20" placeholder='password:' required />
-            </div> 
-            <div class="r-passwordRepeat">
-                <input type='password' name='passwordRepeat' minlength="8" maxlength="20" placeholder='Repita el password:' required />
-            </div> 
-            <div class="r-checkbox">
-                 <label class="check"><input type='checkbox' name='terminos' required>HE LEIDO Y ACEPTO LOS</label><a href='/terminosCondiciones'>TERMINOS Y CONDICIONES</a>
-            </div>
-            <div class="r-checkbox">
-                <label class="check"><input type='checkbox' name='notificaciones'>QUIERO RECIBIR OFERTAS Y OTRAS NOTIFICACIONES</label>
-            </div>
-             <button type='submit' class="btn-registrar">Registrar</button>
-             <br><br>
-             <div class="r-registrado">Ya estas registrado? <a href='/user/login'>Inicia Secion</a></div>
-           </form>
-        </div>
+        <div class="main-content">
+            <main>
 
+                <div id='container'>
+                    <div class="titular">
+                        <h2 class="titulo">.Registrate</h2>
+                    </div>
+                    <div class='register'>
+                        <form>
+                            <div class="r-name">
+                                <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:'
+                                    required />
+                            </div>
+                            <div class="r-lasName">
+                                <input type='text' name='lasName' minlength="3" maxlength="20" placeholder='apellido:'
+                                    required />
+                            </div>
+                            <div class="r-date">
+                                <input type='date' name='date' placeholder='Fecha Nac:' required />
+                            </div>
+                            <div class="r-email">
+                                <input type='email' name='email' placeholder='Email:' required />
+                            </div>
+                            <div class="r-password">
+                                <input type='password' name='password' minlength="8" maxlength="20"
+                                    placeholder='password:' required />
+                            </div>
+                            <div class="r-passwordRepeat">
+                                <input type='password' name='passwordRepeat' minlength="8" maxlength="20"
+                                    placeholder='Repita el password:' required />
+                            </div>
+                            <div class="r-checkbox">
+                                <label class="check"><input type='checkbox' name='terminos' required>HE LEIDO Y ACEPTO
+                                    LOS</label><a href='/terminosCondiciones'>TERMINOS Y CONDICIONES</a>
+                            </div>
+                            <div class="r-checkbox">
+                                <label class="check"><input type='checkbox' name='notificaciones'>QUIERO RECIBIR OFERTAS
+                                    Y
+                                    OTRAS
+                                    NOTIFICACIONES</label>
+                            </div>
+                            <button type='submit' class="btn-registrar">Registrar</button>
+                            <br><br>
+                            <div class="r-registrado">Ya estas registrado? <a href='/user/login'>Inicia Secion</a></div>
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+        <div class="footero">
+            <%- include('../partials/footer')%>
+        </div>
     </div>
-</main> 
-    
-    <%- include('partials/footer')%>
-
 </body>
+
 </html>

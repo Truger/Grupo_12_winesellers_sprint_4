@@ -4,6 +4,29 @@
     font-family: "Bebas Neue", cursive;
     box-sizing: border-box;
 }
+/*--- Reglas para que el footer este abajo ---*/
+body {
+  margin:0;
+  padding:0;
+  height: 1000px;;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+.body {
+  padding:10px;
+  padding-bottom:60px;   /* Height of the footer */
+}
+.footero {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  background:#6cf;
+}
+/*--- Fin de las reglas ---*/
   
   #container {
     width: 800px;

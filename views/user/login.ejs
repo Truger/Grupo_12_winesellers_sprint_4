@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('partials/head')%>
+<%- include ('../partials/head') %>
 
 <body>
-    
-    <%- include('partials/header')%>
-
-    <main>
-    <div id='container'>
-        <div class="titular">
-            <h2 class="titulo">.Ingresa</h2>
+    <div id="wrapper">
+        <div class="headero">
+            <%- include ('../partials/header') %>
         </div>
-        <div class='login'>
-           <form>
-            <div class="r-name">
-                <input type='text' name='name' minlength="3" maxlength="20" placeholder='User or email:' required />
-             </div>
-            <div class="r-password">
-                <input type='password'name='password' minlength="8" maxlength="20" placeholder='password:' required />
-            </div> 
-            <div class="r-checkbox">
-                 <label class="check"><input type="checkbox" name="recordar" value="guardar">Recordar cuenta</label>
-            </div>
-             <button type='submit' class="btn-login">Login</button>
-             <br><br>
-             <div class="r-registrar">No estas registrado? <a href='/user/register'>Registrarme</a></div>
-           </form>
-        </div>
+        <div class="main-content">
+            <main>
+                <div id='container'>
+                    <div class="titular">
+                        <h2 class="titulo">.Ingresa</h2>
+                    </div>
+                    <div class='login'>
+                        <form>
+                            <div class="r-name">
+                                <input type='text' name='name' minlength="3" maxlength="20" placeholder='User or email:'
+                                    required />
+                            </div>
+                            <div class="r-password">
+                                <input type='password' name='password' minlength="8" maxlength="20"
+                                    placeholder='password:' required />
+                            </div>
+                            <div class="r-checkbox">
+                                <label class="check"><input type="checkbox" name="recordar" value="guardar">Recordar
+                                    cuenta</label>
+                            </div>
+                            <button type='submit' class="btn-login">Login</button>
+                            <br><br>
+                            <div class="r-registrar">No estas registrado? <a href='/user/register'>Registrarme</a></div>
+                        </form>
+                    </div>
 
+                </div>
+            </main>
+        </div>
+        <div class="footero">
+            <%- include('../partials/footer')%>
+        </div>
     </div>
-</main>
-
-<%- include('partials/footer')%>
-
 </body>
+
 </html>
