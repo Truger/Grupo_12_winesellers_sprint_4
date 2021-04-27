@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Venta de Vinos</title>
-        <link rel='stylesheet' href='../css/normalize.css' />
-        <link rel="stylesheet" href="../css/Styles.css" type="text/css">
-        <link rel="stylesheet" href="../css/register.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Bebas+Neue&family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
-    </head>
+
+<%- include('../partials/head')%>
+
 <body>
-    <header>
-        <div>
-            <a href="/user/login">Ingresar</a>
-            <span>/</span>
-            <a href="/user/register">Registrarse</a>
-            <i class="fas fa-address-card"></i>
-            <img src="/img/Logo.jpg">
-            <p></p>
-
+    <div id="wrapper">
+        <div class="headero">
+            <%- include('../partials/header')%>
         </div>
-    </header>
-    <main>
+        <div class="main-content">
+            <main>
 
-    <div id='container'>
-        <div class="titular">
-            <h2 class="titulo">.Registrate</h2>
-        </div>
-        <div class='register'>
-           <form>
-            <div class="r-name">
-                <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:' required />
-             </div>
-            <div class="r-lasName">
-                <input type='text' name='lasName' minlength="3" maxlength="20" placeholder='apellido:' required />
-            </div>
-            <div class="r-date">
-                <input type='date' name='date' placeholder='Fecha Nac:' required />
-            </div>
-            <div class="r-email">
-                <input type='email'name='email' placeholder='Email:' required />
-            </div>
-            <div class="r-password">
-                <input type='password'name='password' minlength="8" maxlength="20" placeholder='password:' required />
-            </div> 
-            <div class="r-passwordRepeat">
-                <input type='password' name='passwordRepeat' minlength="8" maxlength="20" placeholder='Repita el password:' required />
-            </div> 
-            <div class="r-checkbox">
-                 <label class="check"><input type='checkbox' name='terminos' required>HE LEIDO Y ACEPTO LOS</label><a href='/terminosCondiciones'>TERMINOS Y CONDICIONES</a>
-            </div>
-            <div class="r-checkbox">
-                <label class="check"><input type='checkbox' name='notificaciones'>QUIERO RECIBIR OFERTAS Y OTRAS NOTIFICACIONES</label>
-            </div>
-             <button type='submit' class="btn-registrar">Registrar</button>
-             <br><br>
-             <div class="r-registrado">Ya estas registrado? <a href='/user/login'>Inicia Secion</a></div>
-           </form>
-        </div>
+                <div id='container'>
+                    <div class="titular">
+                        <h2 class="titulo">.Registrate</h2>
+                    </div>
+                    <div class='register'>
+                        <form>
+                            <div class="r-name">
+                                <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:'
+                                    required />
+                            </div>
+                            <div class="r-lasName">
+                                <input type='text' name='lasName' minlength="3" maxlength="20" placeholder='apellido:'
+                                    required />
+                            </div>
+                            <div class="r-date">
+                                <input type='date' name='date' placeholder='Fecha Nac:' required />
+                            </div>
+                            <div class="r-email">
+                                <input type='email' name='email' placeholder='Email:' required />
+                            </div>
+                            <div class="r-password">
+                                <input type='password' name='password' minlength="8" maxlength="20"
+                                    placeholder='password:' required />
+                            </div>
+                            <div class="r-passwordRepeat">
+                                <input type='password' name='passwordRepeat' minlength="8" maxlength="20"
+                                    placeholder='Repita el password:' required />
+                            </div>
+                            <div class="r-checkbox">
+                                <label class="check"><input type='checkbox' name='terminos' required>HE LEIDO Y ACEPTO
+                                    LOS</label><a href='/terminosCondiciones'>TERMINOS Y CONDICIONES</a>
+                            </div>
+                            <div class="r-checkbox">
+                                <label class="check"><input type='checkbox' name='notificaciones'>QUIERO RECIBIR OFERTAS
+                                    Y
+                                    OTRAS
+                                    NOTIFICACIONES</label>
+                            </div>
+                            <button type='submit' class="btn-registrar">Registrar</button>
+                            <br><br>
+                            <div class="r-registrado">Ya estas registrado? <a href='/user/login'>Inicia Secion</a></div>
+                        </form>
+                    </div>
 
+                </div>
+            </main>
+        </div>
+        <div class="footero">
+            <%- include('../partials/footer')%>
+        </div>
     </div>
-</main> 
-    <footer>
-        <div class="footer">
-
-        </div>
-    </footer>
 </body>
+
 </html>
