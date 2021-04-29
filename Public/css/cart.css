@@ -6,7 +6,7 @@
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -32,22 +32,24 @@
   margin: auto;
   margin-top: 16px;
   margin-bottom: 4px;
-  background-color: rgb(5, 5, 5);
+/*  background-color:rgb(180, 180, 180);*/
   border-radius: 8px;
   padding-bottom: 16px;
   padding-top: 16px;
 }
 .article {
+  position: relative;
   display: flex;
   flex-flow: column;
-  width: 95%;
+  width: 100%;
+  background-color: rgb(226, 224, 224);
   margin: auto;
   margin-top: 8px;
   border: 1px solid white;
   border-radius: 8px;
 }
 .article h2 {
-  color: rgb(255, 255, 255);
+  color: rgb(99, 98, 98);
   margin-bottom: 8px;
   font-weight: 300;
 }
@@ -75,10 +77,12 @@
   margin: auto;
   margin-top: 8px;
   margin-bottom: 8px;
+  padding: 5px;
 }
 
 .descripcion p {
-  color: white;
+  color: rgb(99, 98, 98);
+  font-size: 18px;
 }
 
 .row {
@@ -99,7 +103,7 @@
   width: 40%;
   border-radius: 5px;
   border-color: rgb(204, 203, 203);
-  margin: 1px;
+  margin: 2px;
   transition: all 350ms;
   text-align: center;
   font-weight: 600;
@@ -114,14 +118,17 @@
   width: 20%;
   font-size: 24px;
   font-weight: 900;
-  border-radius: 50px;
-  background-color: rgb(90, 47, 2);
+  border: 0.5px solid gray;
+  border-radius: 8px;
+  padding: 7px;
+  background-color:rgb(144, 147, 145);
   transition: all 350ms;
 }
 
 .cantidad button:hover {
-  background-color: rgb(41, 44, 43);
+  background-color:rgb(61, 61, 61);
   color: antiquewhite;
+  
 }
 
 .cantidad h2 {
@@ -132,10 +139,11 @@
   display: flex;
   flex-flow: column;
   width: 90%;
-  background-color: black;
+  background-color:  rgb(226, 224, 224);
   margin: auto;
 
   margin-top: 4px;
+  margin-bottom: 16px;
   padding-bottom: 8px;
   border-radius: 8px;
 }
@@ -165,9 +173,9 @@
 
 .subTotal label {
   width: 25%;
-  color: aliceblue;
+  color: rgb(99, 98, 98);
   transition: all 350ms;
-
+  font-size: 24px;
   text-align: center;
   padding: 5px;
 }
@@ -208,9 +216,9 @@
 
 .total label {
   width: 25%;
-  color: aliceblue;
+  color:rgb(99, 98, 98);;
   transition: all 350ms;
-
+  font-size: 24px;
   text-align: center;
   padding: 5px;
 }
@@ -253,27 +261,66 @@
   border: 1px solid rgb(29, 30, 30);
 }
 
+.caja{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  border-top: 2px solid #ebebeb;
+  padding: 15px;
+}
+
+
+.iconoBorrar{
+  display: block;
+  font-size: 24px;
+  padding:8px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #232323;
+  background-color: #FFF;
+  border-radius: 20%;
+  position: absolute;
+  right: 20px;
+  top: -15px;
+  color: #232323;
+  transition: all 350ms;
+}
+
+.iconoBorrar:hover{
+  background-color: rgb(79, 3, 3);
+  border: solid 1px white;
+  color: white;
+}
+
 .footer {
   height: 200px;
 }
 
 @media (min-width: 900px) {
   .container {
-    max-width: 1000px;
+    width: 1200px;
   }
+
 
   .article {
     flex-flow: row;
   }
 
   .producto {
-    width: 40%;
+    width: 25%;
+  }
+
+  .descripcion {
+    padding: 10px;
+    width: 80%;
   }
 
   .row {
     width: 40%;
     align-items: center;
     border-top: 0;
+    border-right: 0;
   }
 
   .cantidad h2 {

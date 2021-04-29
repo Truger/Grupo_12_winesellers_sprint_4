@@ -16,13 +16,13 @@
                         <h2 class="titulo">.Registrate</h2>
                     </div>
                     <div class='register'>
-                        <form>
+                        <form action="/user/register" method="POST">
                             <div class="r-name">
                                 <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:'
                                     required />
                             </div>
                             <div class="r-lasName">
-                                <input type='text' name='lasName' minlength="3" maxlength="20" placeholder='apellido:'
+                                <input type='text' name='lastName' minlength="3" maxlength="20" placeholder='apellido:'
                                     required />
                             </div>
                             <div class="r-date">
@@ -44,7 +44,7 @@
                                     LOS</label><a href='/terminosCondiciones'>TERMINOS Y CONDICIONES</a>
                             </div>
                             <div class="r-checkbox">
-                                <label class="check"><input type='checkbox' name='notificaciones'>QUIERO RECIBIR OFERTAS
+                                <label class="check"><input type='checkbox' name='news'>QUIERO RECIBIR OFERTAS
                                     Y
                                     OTRAS
                                     NOTIFICACIONES</label>
