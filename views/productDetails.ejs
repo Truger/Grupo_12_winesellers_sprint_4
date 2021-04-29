@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head')%>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./css/normalize.css' />
+    <link rel="stylesheet" href="css/Styles.css" type="text/css">
+    <link rel="stylesheet" href="css/productDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Bebas+Neue&family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+    <title>Detalles del producto</title>
+</head>
 <body>
+    <div class= "producto">
+        <img src="/Img/Rutini-Malbec.jpg" alt="Rutini-Malbec" class="product_img">
+        <h4>Rutini Cabernet Malbec</h4>
+        <p>Codigo del producto: 0001</p>
+        <p>$1000</p>
 
-    <%- include('partials/header')%>
-
-    <h1>testeando</h1>
-
-    <%- include('partials/footer')%>
-
+        <div>
+        <p>Cosecha del año 2018, variedad de 50% malbec y 50% cabernet, crianza de 12 meses.</p>
+        </div>
+        
+            <div class="cantidad">
+                <p>Seleccione Cantidad: <button>-</button><input type="text" value="1"><button>+</button></p>   
+            </div>
+            <div class="cart-btns">
+                <button>Agregar al Carrito</button>
+            </div>
+    </div>
 </body>
 </html>
+
+
+

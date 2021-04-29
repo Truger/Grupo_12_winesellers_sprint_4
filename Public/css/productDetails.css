@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  font-family: "Bebas Neue", cursive;
+}
+
+.producto {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  line-height: 10%;
+}
+
+.producto img {
+  width: 80%;
+  border-radius: 8px;
+}
+
+.descripcion {
+  text-align: center;
+  text-align: justify;
+
+}
+
+.article {
+  display: flex;
+  flex-flow: column;
+  width: 95%;
+  margin: auto;
+  margin-top: 8px;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+}
+
+.cantidad input {
+  width: 15%;
+  border-radius: 5px;
+  border-color: rgb(204, 203, 203);
+  margin: 1px;
+  transition: all 350ms;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.cantidad input:focus {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+.cantidad button {
+  width: 12%;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 50px;
+  background-color: rgb(90, 47, 2);
+  transition: all 350ms;
+}
+
+.cantidad button:hover {
+  background-color: rgb(41, 44, 43);
+  color: antiquewhite;
+}
+
+
+
