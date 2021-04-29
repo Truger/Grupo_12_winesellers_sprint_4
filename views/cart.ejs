@@ -6,67 +6,27 @@
 <body>
     <%- include('partials/header')%>
     <main>
-        <div class="titular">
-            <h2 class="titulo">Mis Compras..</h2><i class="fas fa-shopping-cart"></i>
-        </div>
+
         <div class="container">
+            <div class="titular">
+                <h2 class="titulo">Mis Compras..</h2>
+            </div>
             <section class="detalle">
                 <div class="productos">
-                    <article class="article">
-                        <div class="producto">
-                            <h2>Producto</h2>
-                            <img src="/Img/Logo.jpg" alt="vino" class="product_img">
-                        </div>
-                        <div class="descripcion">
-                            <h2>Descripcion</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing el</p>
-                        </div>
-                        <div class="row">
-                            <div class="cantidad">
-                                <h2>Cantidad</h2>
-                                <div class="btns">
-                                    <button>-</button><input type="text" value="1" class="cantidad"><button>+</button>
-                                </div>        
-                            </div>
-                            <div class="precio">
-                                <h2>Total</h2>
-                                <h2>$450</h3>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="article">
-                        <div class="producto">
-                            <h2>Producto</h2>
-                            <img src="/Img/Logo.jpg" alt="vino" class="product_img">
-                        </div>
-                        <div class="descripcion">
-                            <h2>Descripcion</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing el</p>
-                        </div>
-                        <div class="row">
-                            <div class="cantidad">
-                                <h2>Cantidad</h2>
-                                <div class="btns">
-                                    <button>-</button><input type="text" value="1" class="cantidad"><button>+</button>
-                                </div>        
-                            </div>
-                            <div class="precio">
-                                <h2>Total</h2>
-                                <h2>$450</h3>
-                            </div>
-                        </div>
-                    </article>
+                    <% products.forEach(product => { %>
+                        <%- include('partials/productCart', { product })%>
+                    <% })%>
                 </div>
             </section>
             <section class="resumen">
                 <div class="subTotal">
                     <button>Sumar cupon de descuento</button>
-                    <label for="">Subtotal:</label>
+                    <label for="">Subtotal :</label>
                     <input type="text" name="subTotal" value="$5800">
                 </div>
                 <div class="total">
                     <button>Calcular envio</button>
-                    <label for="">total:</label>
+                    <label for="">total :</label>
                     <input type="text" name="total" value="$6800">
                 </div>
                 <div class="cart-btns">
