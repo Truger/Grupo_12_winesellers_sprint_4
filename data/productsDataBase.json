@@ -79,5 +79,14 @@
   "discount": 0,
   "image": "vino_santa_julia.jpg",
   "category": "visited"
+ },
+ {
+  "name": "matias muy bien",
+  "description": "espumante original ",
+  "price": "500",
+  "stock": "1",
+  "image": "product-1619898481460.jpg",
+  "category": "2",
+  "id": 10
  }
 ]

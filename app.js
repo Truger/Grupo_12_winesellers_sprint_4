@@ -4,6 +4,7 @@ const port= process.env.PORT;
 const path = require("path");
 const userRouter = require('./routes/userRouter');
 const cartRouter = require('./routes/cartRouter');
+const productRouter = require('./routes/productRouter');
 const methodOverride = require('method-override');
 app.use(express.static("Public"));
 app.set('view engine', 'ejs');
@@ -14,6 +15,7 @@ app.use(methodOverride("_method"));
 
 app.use("/user", userRouter);
 app.use('/cart', cartRouter);
+app.use('/products', productRouter);
 
 app.get("/", (req, res) => { 
     res.render('home') 

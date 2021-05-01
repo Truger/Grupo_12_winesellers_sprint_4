@@ -1,0 +1,27 @@
+<article class="article">
+    <div class="iconoBorrar"><i class="fas fa-trash-alt"></i></div>
+    <div class="producto">
+        <h2><%= product.name %></h2>
+        <img src="<%= product.image %>" alt="vino" class="product_img">
+    </div>
+    <div class="descripcion">
+        <h2>Descripcion</h2>
+        <p><%= product.description %></p>
+    </div>
+    <div class="row">
+        <div class="cantidad">
+            <h2>Cantidad</h2>
+            <div class="btns">
+                <input type="text" value="1" class="cantidad">
+            </div>        
+        </div>
+        <div class="btns">
+            <button class="btn-edit">Editar</button>
+            <button class="btn-stop">Pausar</button>
+        </div>
+        <div class="precio">
+            <h2>Total</h2>
+            <h2><%= product.price %></h3>
+        </div>
+    </div>
+</article>
