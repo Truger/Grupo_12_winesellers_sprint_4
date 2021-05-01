@@ -29,28 +29,26 @@ body {
 /*--- Fin de las reglas ---*/
   
   #container {
-    width: 800px;
-    margin: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
   }
 
   .titular {
-    display: flex;
-    justify-content: left;
-    align-items: center;
+    display: block;
     color: rgb(47, 47, 49);
     margin-top: 24px;
-      margin-left: 72px;
     font-size: x-large;
     }
 
   
   .register {
-    float: left;
-    width: 600px;
+    width: 95%;
     padding: 30px 20px;
     background-color: white;
     text-align: center;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
   }
   
   input {
@@ -63,6 +61,19 @@ body {
     line-height: 45px;  
     margin-bottom: 10px;
     font-size: 1em;
+  }
+
+  .image-perfil{
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    width: 80%;
+    margin-left: 10%;
+   }
+
+  .image-perfil label{
+    margin-left: 0;
+    color: #6f6d6d;
   }
   
   .btn-registrar{
@@ -125,4 +136,52 @@ body {
     align-items: center;
 }
 
+@media (min-width: 680px) {
+  .register {
+    max-width: 650px;
+    position: relative;
+  }
+
+  .image-perfil{
+    display: block;
+    font-size: 16px;
+    padding:8px;
+    width: 175px;
+    height: 105px;
+    border: 1px solid #5e5c5c;
+    background-color: #FFF;
+    border-radius: 8px;
+    position: absolute;
+    right: 10px;
+    top: -15px;
+    color: #232323;
+    transition: all 350ms;
+   }
+
+  .caja{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    border-top: 2px solid #ebebeb;
+    padding: 15px;
+  }
+  
+  
+  .iconoBorrar{
+    display: block;
+    font-size: 24px;
+    padding:8px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #232323;
+    background-color: #FFF;
+    border-radius: 20%;
+    position: absolute;
+    right: 20px;
+    top: -15px;
+    color: #232323;
+    transition: all 350ms;
+  }
+}
   
