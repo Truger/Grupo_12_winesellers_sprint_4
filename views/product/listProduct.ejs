@@ -12,7 +12,7 @@
                 <h2 class="titulo">Productos.</h2>
             </div>
             <section class="detalle">
-                <button>New Product</button>
+                <a href="/products/create"><button style="height: 48px; font-size: 32px; border-radius: 8px;">New Product</button></a>
                 <div class="productos">
                     <% products.forEach(product => { %>
                         <%- include('./product', { product })%>
