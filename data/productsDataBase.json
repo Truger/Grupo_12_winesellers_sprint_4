@@ -3,7 +3,7 @@
   "category": "3",
   "name": "cerveza corona",
   "description": "Cafetera Dolce Gusto Lumio..",
-  "stock": "15",
+  "stock": "9",
   "price": "10",
   "id": "1",
   "file": "vino_findel_mundo.jpg"
@@ -12,10 +12,10 @@
   "category": "3",
   "name": "cerveza quilmes",
   "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
-  "stock": "100",
+  "stock": "111",
   "price": "200",
-  "file": "cerveza-brahma.jpg",
-  "id": "2"
+  "id": "2",
+  "file": "cerveza-brahma.jpg"
  },
  {
   "category": "3",
@@ -81,13 +81,13 @@
   "file": "vino_santa_julia.jpg"
  },
  {
+  "category": "2",
   "name": "matias muy bien",
   "description": "espumante original ",
+  "stock": "2",
   "price": "500",
-  "stock": "1",
-  "file": "vino_findel_mundo.jpg",
-  "category": "2",
-  "id": 10
+  "id": "10",
+  "file": "vino_findel_mundo.jpg"
  },
  {
   "name": "Matias Davila",
