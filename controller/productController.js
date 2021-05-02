@@ -12,22 +12,40 @@ const controller = {
          return res.render('product/createProduct');
     },
     save: (req, res) => {
-     console.log(req.body);
-     let productNew = {
-         name : req.body.name,
-         description : req.body.description,
-         price : req.body.price,
-         stock : req.body.stock,
-         image : req.body.file,
-         category : req.body.category,
-         }
+     if(req.file){
+        let productNew = req.body;
+      /*  {
+            name : req.body.name,
+            description : req.body.description,
+            price : req.body.price,
+            stock : req.body.stock,
+            image : req.body.file,
+            category : req.body.category,
+            condition:'active'
+            }*/
 
-        model.create(productNew);
-        res.redirect('/products');
+   
+           model.create(productNew);
+           res.redirect('/products');
+     }else{
+        return res.render('product/createProduct');
+     }
+
     },
 
     edit: (req, res) => {
-         return res.render('product/editProduct');
+         let product = model.find(req.params.id);
+         return res.render('product/editProduct', {'product':product});
+    },
+    update: (req, res) => {
+        let productUpdate = req.body;
+        productUpdate.id = req.params.id;
+        if(!productUpdate.file){
+            productUpdate.file = model.find(req.params.id).file;
+        }
+        console.log(productUpdate);
+        model.update(productUpdate);
+        return res.redirect('/products');
     },
 
 };

@@ -85,6 +85,11 @@
     margin-top: 8px;
     margin-bottom: 8px;
    }
+      .product-create-file img {
+          border-radius: 5px;
+          width: 80%;
+          padding-left: 8px;  
+        }
 
       .product-create-file input {
         border-radius: 5px;
