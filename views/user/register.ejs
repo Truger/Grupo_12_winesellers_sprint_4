@@ -16,7 +16,8 @@
                         <h2 class="titulo">.Registrate</h2>
                     </div>
                     <div class='register'>
-                        <form action="/user/register" method="POST">
+                        <form action="/user/register" method="POST"
+                            enctype="multipart/form-data">
                             <div class="r-name">
                                 <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:'
                                     required />
@@ -30,6 +31,11 @@
                             </div>
                             <div class="r-email">
                                 <input type='email' name='email' placeholder='Email:' required />
+                            </div>
+                            <div class="image-perfil">
+                                <label for="" class="titulo">Foto de Perfil</label>
+                                <input type="file" name="file">
+                               
                             </div>
                             <div class="r-password">
                                 <input type='password' name='password' minlength="8" maxlength="20"

@@ -7,8 +7,7 @@ const controller = {
     },
 
     login: (req, res) => {
-        console.log('login exitoso')
-        return res.render('user/login');
+         return res.render('user/login');
     },
 
     create: (req, res) => {
@@ -20,13 +19,12 @@ const controller = {
             email : req.body.email,
             password : req.body.password,
             news : req.body.news,
-            category:'user',
-            image: 'image'
+            rol:'user',
+            image: req.body.file
             }
 
            model.create(userNew);
-           return res.render('user/login');
-          
+           return res.render('user/login');        
     }
 };
 
