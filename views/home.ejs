@@ -1,19 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('partials/head')%>
+<%- include('partials/head-index')%>
 
 <body>
-    
-    <%- include('partials/header')%>
 
-    <main>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, ea ad? Alias nostrum consequuntur aliquid
-            ullam fugiat porro laboriosam delectus fuga accusamus voluptatem sequi, nesciunt nisi cumque commodi dolorem
-            fugit.</p>
-    </main>
-    
-    <%- include('partials/footer')%>
+  <%- include('partials/header')%>
+
+  <main>
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="img11" src="../Img/slide_01.png">
+        </div>
+        <div class="carousel-item">
+          <img class="img11" src="../Img/slide_02.png">
+        </div>
+        <div class="carousel-item">
+          <img class="img11" src="../Img/slide_03.png">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <h2>Ofertas</h2>
+    <div id="carouselExampleInterval" class="carousel slide multi-item-carousel" data-bs-ride="carousel">
+      <div class="container">
+          <div class="col">
+              <div class="carousel-inner2 row w-100 mx-auto">
+                  <div class="carousel-item active">
+                      <div class="novedad">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza_corona.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">    
+                                  <h4>Cerveza Corona</h4>
+                                  <div class="precio">$3.500</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza-brahma.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Brahma</h4>
+                                  <div class="precio">$3.800</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block d-md-block">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza.heneken.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Heneken</h4>
+                                  <div class="precio">$4.800</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block d-md-block">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza_corona.jpg" class="d-block w-100"  class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Corona</h4>
+                                  <div class="precio">$2.500</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block">
+                        <a href="/detalleProducto">
+                            <figure>
+                                <img src="/img/cerveza-brahma.jpg" class="d-block w-100" class="img-fluid">
+                            </figure>
+                            <div class="prod-info">
+                                <h4>Cerveza Brahma</h4>
+                                <div class="precio">$3.800</div>
+                            </div>
+                        </a>
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                      <div class="novedad">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza-brahma.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Brahma</h4>
+                                  <div class="precio">$3.500</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza.heneken.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Heneken</h4>
+                                  <div class="precio">$3.500</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block d-md-block">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza_corona.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Corona</h4>
+                                  <div class="precio">$3.500</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block d-md-block">
+                          <a href="/detalleProducto">
+                              <figure>
+                                  <img src="/img/cerveza-brahma.jpg" class="d-block w-100" class="img-fluid">
+                              </figure>
+                              <div class="prod-info">
+                                  <h4>Cerveza Brahma</h4>
+                                  <div class="precio">$3.500</div>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="novedad d-none d-sm-block d-md-block">
+                        <a href="/detalleProducto">
+                            <figure>
+                                <img src="/img/cerveza_corona.jpg" class="d-block w-100" class="img-fluid">
+                            </figure>
+                            <div class="prod-info">
+                                <h4>Cerveza Corona</h4>
+                                <div class="precio">$3.500</div>
+                            </div>
+                        </a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+  </div>
+
+  </main>
+
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <%- include('partials/footer')%>
 
 </body>
 

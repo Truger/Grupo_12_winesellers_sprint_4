@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Bebas Neue", cursive;
+    box-sizing: border-box;
+}
+
+footer {
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.products-footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    display: none;
+}
+
+.products-footer ul {
+    list-style: none;
+    font-size: 0.8em;
+}
+
+.products-footer ul a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.info {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.info ul {
+    list-style: none;
+    font-size: 0.8em;
+}
+
+.info ul a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.payment {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.social-media {
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.social-media ul {
+    list-style: none;
+    font-size: 0.8em;
+}
+
+.social-media ul a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.fa-facebook-square {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.fa-twitter-square {
+    font-size: 25px;
+    margin-right: 5px;
+
+}
+
+.fa-instagram-square {
+    font-size: 25px;
+    margin-right: 5px;
+
+}
+
+.media-list {
+    display: flex;
+}
+
+.social {
+    display: flex;
+    align-self: center;
+}
+
+@media screen and (min-width: 768px) {
+    
+    footer {
+        justify-content:space-around;
+    }
+    .products-footer {
+        display: block;
+    }
+
+    footer h4 {
+        font-size: 18px;
+    }
+
+    footer ul li {
+        font-size: 13px;
+    }
+
+    .fa-facebook-square {
+        font-size: 29px;
+
+    }
+
+    .fa-twitter-square {
+        font-size: 29px;
+    }
+
+    .fa-instagram-square {
+        font-size: 29px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    footer {
+        justify-content: space-around;
+    }
+    footer h4 {
+        font-size: 22px;
+    }
+
+    footer ul li {
+        font-size: 16px;
+    }
+
+    .payment img {
+        width: 200px;
+    }
+
+    .fa-facebook-square {
+        font-size: 33px;
+
+    }
+
+    .fa-twitter-square {
+        font-size: 33px;
+    }
+
+    .fa-instagram-square {
+        font-size: 33px;
+    }
+
+}

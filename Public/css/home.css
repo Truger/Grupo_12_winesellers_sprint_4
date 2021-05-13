@@ -5,255 +5,125 @@
     box-sizing: border-box;
 }
 
-header {
-    background-color: white;
-}
-
 body {
     background-color: rgb(180, 180, 180);
     position: relative;
+    width: 100%;
 }
 
-.logins {
-    margin-top: 10px;
-    margin-left: 10px;
-    text-decoration: none;
-    display: inline-flex;
-    align-self: flex-start;
+h2 {
+    text-align: center;
+    font-size: 50px;
 }
 
-.logins a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.logo-register img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.burger-search {
-    display: flex;
-    justify-content: space-between;
-}
-
-.burger {
-    margin-left: 10px;
-    font-size: 30px;
-    color: #000000;
-    margin-bottom: 20px;
-    margin-top: 5px;
-}
-
-
-
-.search-container {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 5px;
-    height: 30px;
-    width: 60%;
-    border: solid 2px #000000;
-    border-radius: 3px;
-    position: relative;
-
-}
-
-.searcher {
-    border: none;
-    outline: none;
-    display: flex;
-    height: 26px;
-    padding-left: 10px;
-    padding-right: 5px;
-    border-radius: 3px;
-    width: 90%;
-
-}
-
-.glass {
-    background-color: #ffffff;
-    border: none;
-    font-size: 20px;
-    padding-right: 3px;
-    border-radius: 3px;
-    padding-top: 3px;
-    position: absolute;
-    right: 0px;
-
-}
-
-.fa-shopping-cart {
-    margin-right: 10px;
-    font-size: 30px;
-    color: #000000;
-    margin-top: 5px;
-}
-
-footer {
-    background: #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.products-footer {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    font-size: 18px;
+.visually-hidden{
     display: none;
 }
-
-.products-footer ul {
-    list-style: none;
-    font-size: 0.8em;
+.carousel-control-prev,
+.carousel-control-next{
+    background-color: transparent;
+    border: 0;
+}
+.carousel-control-prev, 
+.carousel-control-next{
+    width: 7%!important;
+}
+.carousel-item {
+    height: 21rem;
 }
 
-.products-footer ul a {
-    color: #000000;
-    text-decoration: none;
+#carouselExampleInterval{
+	background-color: rgb(107, 107, 107);
+	padding: 20px 0;
 }
-
-.info {
-    margin-top: 10px;
-    margin-left: 20px;
-    font-size: 18px;
-}
-
-.info ul {
-    list-style: none;
-    font-size: 0.8em;
-}
-
-.info ul a {
-    color: #000000;
-    text-decoration: none;
-}
-
-.payment {
-    margin-top: 10px;
+#carouselExampleInterval .novedad{
+    float: left;
     text-align: center;
-    font-size: 18px;
+    padding: 14px 10px;
 }
 
-.social-media {
-    margin-top: 10px;
-    margin-right: 20px;
-    font-size: 18px;
+#carouselExampleInterval .carousel-item{
+	height: auto;
+}
+.prod-info{
+	text-align: left;
+	padding: 0 2px;
 }
 
-.social-media ul {
-    list-style: none;
-    font-size: 0.8em;
+.prod-info h4{
+	font-size: 20px;
+	line-height: 1.2;
+	text-transform: none;
+	color: #000000;
+	font-weight: 700;
+	margin: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.prod-info .precio{
+	font-size: 24px;
+	line-height: 1.2;
+	text-transform: none;
+	color: #000000;
+	font-weight: 400;
 }
 
-.social-media ul a {
-    color: #000000;
-    text-decoration: none;
+.novedad img{
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.novedad:hover img{
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(255,255,255,0.5);
+	box-shadow: 1px 1px 5px 2px rgba(255,255,255,0.5);
 }
 
-.fa-facebook-square {
-    font-size: 25px;
-    margin-right: 5px;
+@media (max-width: 576px){
+	#carouselExampleInterval .novedad{
+		width: 100%;
+	}
 }
 
-.fa-twitter-square {
-    font-size: 25px;
-    margin-right: 5px;
-
+@media (min-width: 577px){
+	#carouselExampleInterval .novedad{
+		width: 25%;
+	}
+	.prod-info .section{
+		font-size: 12px;
+	}
+	.prod-info h4{
+		font-size: 14px;
+		padding: 10px 0;
+	}
+	.prod-info .precio{
+		font-size: 18px;
+	}
 }
 
-.fa-instagram-square {
-    font-size: 25px;
-    margin-right: 5px;
-
+@media (min-width: 769px){
+	
+	.carousel-item {
+	    height: 19rem;
+	}
+	#carouselExampleInterval .novedad{
+	    width: 25%;
+	}
+	.prod-info h4{
+		font-size: 20px;
+		padding: 0px 0;
+	}
+	.prod-info .precio{
+		font-size: 24px;
+	}
 }
 
-.media-list {
-    display: flex;
-}
-
-.social {
-    display: flex;
-    align-self: center;
-}
-
-@media screen and (min-width: 768px) {
-    .test {
-        display: inline;
-    }
-
-    .logins {
-        margin-top: 20px;
-        margin-left:  20px;
-        font-size: 20px;
-    }
-
-    .logo-register img {
-        width: 350px;
-    }
-
-    .searcher {
-        width: 94%;
-    }
-
-    footer {
-        justify-content:space-around;
-    }
-    .products-footer {
-        display: block;
-    }
-
-    footer h4 {
-        font-size: 18px;
-    }
-
-    footer ul li {
-        font-size: 13px;
-    }
-
-    .fa-facebook-square {
-        font-size: 29px;
-
-    }
-
-    .fa-twitter-square {
-        font-size: 29px;
-    }
-
-    .fa-instagram-square {
-        font-size: 29px;
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    footer {
-        justify-content: space-around;
-    }
-    footer h4 {
-        font-size: 22px;
-    }
-
-    footer ul li {
-        font-size: 16px;
-    }
-
-    .payment img {
-        width: 200px;
-    }
-
-    .fa-facebook-square {
-        font-size: 33px;
-
-    }
-
-    .fa-twitter-square {
-        font-size: 33px;
-    }
-
-    .fa-instagram-square {
-        font-size: 33px;
-    }
-
+@media (min-width: 1280px){
+	#carouselExampleInterval .novedad{
+	    width: 20%;
+	}
 }
