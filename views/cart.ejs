@@ -14,7 +14,7 @@
             <section class="detalle">
                 <div class="productos">
                     <% products.forEach(product => { %>
-                        <%- include('partials/productCart', { product })%>
+                        <%- include('product/productCart', { product }) %>
                     <% })%>
                 </div>
             </section>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="total">
                     <button>Calcular envio</button>
-                    <label for="">total :</label>
+                    <label for="">total $:</label>
                     <input type="text" name="total" value="$6800">
                 </div>
                 <div class="cart-btns">

@@ -58,8 +58,7 @@ const model = function (name) {
 
                 return oneRow;
             });
-            // escribo el archivo
-            console.log(updatedRows)
+
             this.writeFile(updatedRows);
 
             return row.id;
@@ -76,7 +75,6 @@ const model = function (name) {
 
             this.writeFile(updatedRows);
         }
-
       
     }
 }
