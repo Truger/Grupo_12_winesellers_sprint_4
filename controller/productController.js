@@ -13,18 +13,7 @@ const controller = {
     },
     save: (req, res) => {
      if(req.file){
-        let productNew = req.body;
-      /*  {
-            name : req.body.name,
-            description : req.body.description,
-            price : req.body.price,
-            stock : req.body.stock,
-            image : req.body.file,
-            category : req.body.category,
-            condition:'active'
-            }*/
-
-   
+        let productNew = req.body;  
            model.create(productNew);
            res.redirect('/products');
      }else{
