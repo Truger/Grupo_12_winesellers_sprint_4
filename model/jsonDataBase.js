@@ -35,6 +35,11 @@ const model = function (name) {
             return rows.find(product => product.id == id);
         },
 
+        findemail:function(email) {
+            let rows = this.readFile();
+            return rows.find(product => product.email == email);
+        },
+
 // agrego un registro que paso por parámetro
         create:function(row) {
             let rows = this.readFile();

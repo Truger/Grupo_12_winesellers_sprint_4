@@ -76,9 +76,13 @@
   .r-checkbox{
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      margin-left: 80px;
+      justify-content:space-between;
+      margin-right: 80px;
       font-size: 14px;
+  }
+
+  .r-checkbox a{
+    margin-left: 140px;
   }
 
   input[type=checkbox]{
@@ -99,7 +103,7 @@
 .check{
     display: flex;
     align-items: center;
-}
+  }
 
 .r-registrar{
    margin-left: 250px;
@@ -110,4 +114,8 @@
     margin-top: 40px;
 }
 
+.text-danger{
+  color: rgb(196, 14, 14);
+  font-size: 14px;
+}
   

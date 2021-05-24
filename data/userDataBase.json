@@ -1,11 +1,11 @@
 [
  {
   "id": 1,
-  "name": "Ginelle",
-  "lastName": "Rallinshaw",
+  "name": "matias isaac",
+  "lastName": "Davila",
   "date": "5/1/2020",
-  "email": "grallinshaw0@phpbb.com",
-  "password": "hJzzi1RE",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$0lbh4dhk7mtppYXikaPSL.7Hep84lZlW8rbXzSdE0nZ8aKDTTlck2",
   "news": false,
   "rol": "Horizontal",
   "image": "https://robohash.org/eaquevoluptatevoluptas.png?size=50x50&set=set1"

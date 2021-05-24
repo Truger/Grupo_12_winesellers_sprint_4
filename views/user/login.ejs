@@ -15,18 +15,33 @@
                         <h2 class="titulo">.Ingresa</h2>
                     </div>
                     <div class='login'>
-                        <form>
+                        <% if (locals.error){ %>
+                            <div class="text-danger">
+                                <%= error.msg %>
+                            </div>
+                            <% } %>
+                        <form action="/user/loguear" method="POST" class="form-login">
                             <div class="r-name">
-                                <input type='text' name='name' minlength="3" maxlength="20" placeholder='User or email:'
-                                    required />
+                                <input type='email' name='email' laceholder='example@gmail.com:' value="admin@gmail.com"/>
+                                    <% if (locals.errors && errors.email){ %>
+                                        <div class="text-danger">
+                                            <%= errors.email.msg %>
+                                        </div>
+                                        <% } %>
                             </div>
                             <div class="r-password">
                                 <input type='password' name='password' minlength="8" maxlength="20"
-                                    placeholder='password:' required />
+                                    placeholder='admin123:'/>
+                                    <% if (locals.errors && errors.password){ %>
+                                        <div class="text-danger">
+                                            <%= errors.password.msg %>
+                                        </div>
+                                        <% } %>
                             </div>
                             <div class="r-checkbox">
-                                <label class="check"><input type="checkbox" name="recordar" value="guardar">Recordar
+                                <label class="check"><input type="checkbox" name="remember" value="guardar">Recordar
                                     cuenta</label>
+                                    <a href='/user/PasswordReset'>recuperar contrasenia!</a>
                             </div>
                             <button type='submit' class="btn-login">Login</button>
                             <br><br>
