@@ -2,9 +2,13 @@
     <section class="header-main">
         <section class="logo-register">
             <nav class="logins">
+                <% if (!locals.isLogged){ %>
                 <a href="/user/login">Ingresar</a>
                 <span>/</span>
                 <a href="/user/register">Registrarse</a>
+                <% }else{ %>
+                    <a href="/user/Logout">Logout</a>
+                <% } %>
             </nav>
             <div class="test">
                 <a href="/"><img src="../Img/Logo.jpg" width="230px"></a>

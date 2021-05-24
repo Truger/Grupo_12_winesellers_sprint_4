@@ -7,12 +7,20 @@ const cartRouter = require('./routes/cartRouter');
 const productRouter = require('./routes/productRouter');
 const methodOverride = require('method-override');
 app.use(express.static("Public"));
+const userLoggertMiddleware = require('./middlewares/userLoggertMiddleware');
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(methodOverride("_method"));
-
-
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+app.use(session({
+    secret:'secreto',
+    resave: false,
+    saveUninitialized:false
+    }));
+app.use(cookieParser());
+app.use(userLoggertMiddleware);
 app.use("/user", userRouter);
 app.use('/cart', cartRouter);
 app.use('/products', productRouter);
