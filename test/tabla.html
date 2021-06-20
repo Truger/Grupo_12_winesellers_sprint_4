@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>test_laborar</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script type="text/javascript" src="/functions.js"></script>
+
+</head>
+
+<body>
+
+    <table id="alumnos">
+
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th></th>
+            <th></th>
+            <th>Calificaciones</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Parcial 1</th>
+            <th>Parcial 2</th>
+            <th>Parcial 3</th>
+            <th>Final</th>
+        </tr>
+    </table>
+    <script>
+        var alumnos = [{
+            "nombre": "Jesús", "apellidoP": "Paniagua", "apellidoM": "Hernández",
+            "parcial1": 6, "parcial2": 5, "parcial3": 10
+        },
+        {
+            "nombre": "Mauricio", "apellidoP": "Salgado", "apellidoM": "Flores", "parcial1": 8, "parcial2": 10,
+            "parcial3": 9
+        },
+        {
+            "nombre": "Diana", "apellidoP": "Lopez", "apellidoM": "García", "parcial1": 6, "parcial2": 5,
+            "parcial3": 0
+        }];
+
+        let tablaAlumnos = document.getElementById('alumnos');
+        let cuerpotable = document.createElement('tbody');
+
+        alumnos.forEach(element => {
+            let color = 'e8edff';
+            if(Math.round((element.parcial3 + element.parcial2 + element.parcial1)/3)<6) color = '#be1d04';
+            let fila = document.createElement('tr');
+            let td = document.createElement('td');
+
+            td.innerText = element.nombre;
+            fila.appendChild(td).style.backgroundColor=color;
+
+            td = document.createElement('td')
+            td.innerText = element.apellidoP;
+            fila.appendChild(td).style.backgroundColor=color;
+
+            td = document.createElement('td')
+            td.innerText = element.apellidoM;
+            fila.appendChild(td).style.backgroundColor=color;
+
+            td = document.createElement('td')
+            td.innerText = element.parcial1;
+            fila.appendChild(td).style.backgroundColor=color;
+
+            td = document.createElement('td')
+            td.innerText = element.parcial2;
+            fila.appendChild(td).style.backgroundColor=color;
+
+            td = document.createElement('td')
+            td.innerText = element.parcial3;
+            fila.appendChild(td).style.backgroundColor=color;
+
+            td = document.createElement('td')
+            td.innerText = Math.round((element.parcial3 + element.parcial2 + element.parcial1)/3);
+            fila.appendChild(td).style.backgroundColor=color;
+           
+            cuerpotable.appendChild(fila);
+           });
+
+        tablaAlumnos.appendChild(cuerpotable);
+
+    </script>
+
+</body>
+
+</html>

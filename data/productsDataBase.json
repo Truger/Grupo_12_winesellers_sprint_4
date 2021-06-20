@@ -107,5 +107,14 @@
   "price": "150",
   "id": "12",
   "file": "vino_findel_mundo.jpg"
+ },
+ {
+  "category": "2",
+  "name": "Matias  isaa Davila",
+  "description": "solo yo",
+  "stock": "1",
+  "price": "4444",
+  "id": "13",
+  "file": "product-1624220854456.jpg"
  }
 ]

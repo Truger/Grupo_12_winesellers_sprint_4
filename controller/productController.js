@@ -22,6 +22,11 @@ const controller = {
 
     },
 
+    detail: (req, res) => {
+        let product = model.find(req.params.id);
+        return res.render('product/detailProduct', {'product':product});
+   },
+
     edit: (req, res) => {
          let product = model.find(req.params.id);
          return res.render('product/editProduct', {'product':product});
@@ -36,6 +41,12 @@ const controller = {
         model.update(productUpdate);
         return res.redirect('/products');
     },
+
+    remove: (req, res) => {
+        let id = req.params.id;
+        model.delete(id);
+        return res.reder('/products');
+    }
 
 };
 
