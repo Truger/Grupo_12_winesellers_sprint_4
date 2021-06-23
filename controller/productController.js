@@ -44,8 +44,9 @@ const controller = {
 
     remove: (req, res) => {
         let id = req.params.id;
+        console.log('la ide del `roduct is :'+id)
         model.delete(id);
-        return res.reder('/products');
+        return res.redirect('/products');
     }
 
 };

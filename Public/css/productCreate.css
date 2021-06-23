@@ -189,17 +189,36 @@
   .btns{
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content:center;
+  }
+  .btn-edit {
+    border: 1px solid #ccc;
+    padding: .5rem;
+    width: 150px;
+    background-color: white;
+    border-color: #a5b56c;
+    margin-bottom: 30px;
+    transition: all 350ms;
+    margin-left: 150px;
+    margin-right: 50px;
+}
+.btn-edit:hover{
+    background-color: rgb(144, 147, 145);
+    color: black;
+    border: 1px solid rgb(19, 85, 139);
+    border-radius: 4px;
+    
   }
   .btn-agregar{
-    border: 0.5px solid rgb(117, 116, 116);
-    border-radius: 5px;
-    width: 50%;
-    height: 32px;
-    background-color: rgb(160, 165, 162);
-    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    padding: .5rem;
+    width: 150px;
+    background-color: white;
+    border-color: #a5b56c;
+    margin-bottom: 30px;
     transition: all 350ms;
-    font-size: 24px;
+    margin-left: 150px;
+    margin-right: 50px;
   }
 
   .btn-agregar:hover{
@@ -209,20 +228,20 @@
   }
 
   .btn-delete{
-    border-radius: 5px;
-    border: 0.5px solid rgb(117, 116, 116);
-    width: 10%;
-    height: 32px;
-    background-color: rgb(160, 165, 162);
-    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    height: 50px;
+    padding: .5rem;
+    background-color: white;
+    border-color: #b5776c;
     transition: all 350ms;
-    font-size: 24px;
+    margin-bottom: 30px;
   }
 
   .btn-delete:hover{
-    background-color: rgb(180, 185, 182);
-    border: 0.5px solid rgb(17, 17, 17);
-    color: rgb(206, 0, 0);  
+    background-color: rgb(144, 147, 145);
+    color: black;
+    border: 1px solid saddlebrown;
+    border-radius: 4px;  
   }
   
   .footer {
@@ -260,6 +279,9 @@
       width: 60%;
     }
 
-     
+    .btn-edit,.btn-agregar{
+       margin-right: 150px;
+    }
   
+
   }  

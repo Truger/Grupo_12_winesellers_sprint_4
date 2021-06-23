@@ -1,45 +1,9 @@
 [
  {
-  "category": "Selecciona una categoria",
-  "name": "cerveza corona",
-  "description": "Cafetera Dolce Gusto Lumio..",
-  "stock": "9",
-  "price": "10",
-  "id": "1",
-  "file": "vino_findel_mundo.jpg"
- },
- {
-  "category": "3",
-  "name": "cerveza quilmes",
-  "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
-  "stock": "111",
-  "price": "200",
-  "id": "2",
-  "file": "cerveza-brahma.jpg"
- },
- {
-  "category": "3",
-  "name": "cerveza brahama",
-  "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
-  "stock": "5",
-  "price": "72999",
-  "id": "3",
-  "file": "cerveza-brahma.jpg"
- },
- {
-  "category": "1",
-  "name": "cerveza haneken",
-  "description": "Disfrutá de la frescura de tus alimentos y almacenalos de manera práctica y cómoda en tu heladera Whirlpool, la protagonista de tu cocina. Su sistema no frost evita la generación de escarcha y te permitirá conservar el sabor y las propiedades nutritivas de los productos.A su vez, su freezer cuenta con una capacidad de 86 litros, que facilitará la distribución y el orden de tus congelados para que no te preocupes por la falta de espacio.",
-  "stock": "7",
-  "price": "479",
-  "id": "4",
-  "file": "cerveza.heneken.jpg"
- },
- {
   "category": "2",
-  "name": "vino chubut",
+  "name": "vino chubut de mendosa",
   "description": "Incluye la cámara D3500, el objetivo zoom AF-P DX NIKKOR 18-55mm y el superteleobjetivo zoom compacto AF-P DX NIKKOR 70-300mm. Ambos objetivos enfocan de forma rápida y silenciosa, lo que resulta ideal para grabar metraje de vídeo sin que se escuche apenas el ruido del accionamiento.",
-  "stock": "10",
+  "stock": "100",
   "price": "53000",
   "id": "5",
   "file": "vino_chubut.jpg"
@@ -107,14 +71,5 @@
   "price": "150",
   "id": "12",
   "file": "vino_findel_mundo.jpg"
- },
- {
-  "category": "2",
-  "name": "Matias  isaa Davila",
-  "description": "solo yo",
-  "stock": "1",
-  "price": "4444",
-  "id": "13",
-  "file": "product-1624220854456.jpg"
  }
 ]

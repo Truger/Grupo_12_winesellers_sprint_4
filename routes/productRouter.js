@@ -23,5 +23,6 @@ router.post('/', upload.single('file'), productController.save);
 router.get('/:id/edit', productController.edit);
 router.get('/:id/detailProduct', productController.detail);
 router.put('/:id', upload.single('file'), productController.update);
+router.delete('/:id', productController.remove);
 
 module.exports = router;
