@@ -9,6 +9,35 @@
     width: 100%;
     margin: auto;
   }
+
+  .container-navbar {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+  }
+  .link{
+   margin: auto;
+   margin-bottom: 20px;
+  }
+
+    .search{
+      display: flex;
+      flex-flow: column;
+    }
+    .input-search{
+      width: 95%;
+     margin: auto;
+     border-radius: 3px;
+     height: 40px;
+     margin-bottom: 10px;
+    }
+
+    .btn-search{
+      height: 30px;
+      width: 95%;
+     margin: auto;
+    }
   
   .titular {
     display: flex;
@@ -163,16 +192,57 @@
     .container {
       width: 1200px;
     }
+    .navbar{
+
+    }
+    .container-navbar {
+      width: 100%;
+      display: flex;
+      flex-flow:row;
+      align-items: center;
+     }
+    .link{
+     margin: auto;
+     margin-left: 40px;
+    }
   
+      .search{
+        display: flex;
+        flex-flow: row;
+        width: 50%;
+        margin-right: 70px;
+     
+       }
+      .input-search{
+       width: 70%;
+       margin: auto;
+       border-radius: 3px;
+       height: 40px;
+ 
+       }
+  
+      .btn-search{
+        height: 40px;
+        width: 25%;
+        margin: auto;
+     
+      }
   
     .article {
       flex-flow: row;
     }
-  
+
     .producto {
-      width: 25%;
-    }
+      width:300x;
+      height:150px;
+      overflow:hidden;
+     }
   
+    .producto img{
+      width:auto;
+      height:75%;     
+    }
+     
     .descripcion {
       padding: 10px;
       width: 80%;
