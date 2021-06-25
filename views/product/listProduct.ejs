@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head')%>
+<%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/productsList.css" />
 
-<body>
-    <%- include('../partials/header')%>
-    <main>
+    <body>
+        <%- include('../partials/header')%>
+            <main>
 
-        <div class="container">
-            <div class="titular">
-                <h2 class="titulo">Productos.</h2>
-            </div>
-            <section class="detalle">
-                <a href="/products/create"><button style="height: 48px; font-size: 32px; border-radius: 8px;">New Product</button></a>
-                <div class="productos">
-                    <% products.forEach(product => { %>
-                        <%- include('./product', { product })%>
-                    <% })%>
+                <div class="container">
+                    <nav class="navbar">
+                        <div class="container-navbar">
+                          <h1>Productos</h1>
+                          <a href="/products/create" class="link" style="height: 28px; font-size: 22px;">New Product</a>
+                          <form class="search">
+                            <input type="input" class="input-search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-search" type="submit">Buscar</button>
+                          </form>
+                        </div>
+                      </nav>
+                    <section class="detalle">
+                        <div class="productos">
+                            <% products.forEach(product=> { %>
+                                <%- include('./product', { product })%>
+                                    <% })%>
+                        </div>
+                    </section>
+
                 </div>
-            </section>
+            </main>
 
-        </div>
-    </main>
-    
-    <%- include('../partials/footer')%>
+            <%- include('../partials/footer')%>
 
-</body>
+    </body>
 
 </html>

@@ -71,5 +71,14 @@
   "price": "150",
   "id": "12",
   "file": "vino_findel_mundo.jpg"
+ },
+ {
+  "file": "product-1624486419742.jpg",
+  "category": "1",
+  "name": "Matias Davila",
+  "description": "davila",
+  "stock": "1",
+  "price": "00",
+  "id": 13
  }
 ]

@@ -15,7 +15,7 @@ const controller = {
   loguear: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-     const userLoguear = model.findemail(req.body.email);
+     const userLoguear = model.findOne({where: {email: req.body.email}});
       if (userLoguear) {
         let password = req.body.password;
         if (bcrypt.compareSync(password, userLoguear.password)) {
@@ -53,20 +53,31 @@ const controller = {
 
   create: (req, res) => {
     console.log(req.body);
-    let userNew = {
-      name: req.body.name,
-      lastName: req.body.lastName,
-      date: req.body.date,
-      email: req.body.email,
-      password: req.body.password,
-      news: req.body.news,
-      rol: "user",
-      image: req.body.file,
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+       let userNew = {
+        name: req.body.name,
+        lastName: req.body.lastName,
+        date: req.body.date,
+        email: req.body.email,
+        password: req.body.password,
+        news: req.body.news,
+        rol: "user",
+        image: req.body.file,
     };
 
     model.create(userNew);
-    return res.render("user/login");
+     return res.render("user/login");
+   }else{
+     return res.render("user/register", { errors: errors.mapped() });
+   }
   },
+
+  detail: (req, res) => {
+    let user = model.findOne(req.params.id);
+		return res.render('user/detailUser', {user: user});
+  }
+
 };
 
 module.exports = controller;

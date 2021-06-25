@@ -11,12 +11,29 @@ const authMiddleware = require('../middlewares/authMiddlewar');
 
 const upload = multer({storage: storage});
 
-router.get('/login', guestMiddleware, userController.login);
-router.post('/loguear', validations.validetUserLogin, userController.loguear);
+router.get('/login', 
+        guestMiddleware, 
+        userController.login
+        );
+router.post('/loguear', 
+        validations.validetUserLogin, 
+        userController.loguear
+        );
 router.get('/logout', userController.logout); 
-router.get('/register', guestMiddleware, userController.register);
 
-router.post('/register', upload.single('file'), userController.create);
+router.get('/register', 
+        guestMiddleware, 
+        userController.register
+        );
 
+router.post('/register',
+         upload.single('file'),
+         validations.validetUserCreate, 
+         userController.create
+         );
+router.get('/:id/detailUser',
+         authMiddleware,
+         userController.detail
+         );
 
 module.exports = router;
