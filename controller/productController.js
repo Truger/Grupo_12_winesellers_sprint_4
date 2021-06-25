@@ -1,5 +1,7 @@
+
 const jsonDatabase = require('../model/jsonDataBase');
 const model = jsonDatabase('productsDataBase');
+const {validationResult} = require('express-validator')
 
 const controller = {
 
@@ -8,7 +10,7 @@ const controller = {
         const productCategory = Number(query.productCategory) ? Number(query.productCategory) : null;
         const productBrand = Number(query.productBrand) ? Number(query.productBrand) : null;
         const productName = query.productName ? query.productName: '';
-        db.product.findAll({
+       Product.findAll({
             include: [
                 {
                     model: Category,
@@ -50,7 +52,8 @@ const controller = {
     },
 
     save: (req, res) => {
-     if(req.file){
+        let errors = validationResult(req);
+		if(errors.isEmpty()){
         let productNew = req.body;  
            Product.create(productNew)
            .then( confirm => {
@@ -58,7 +61,7 @@ const controller = {
            })
            .catch(error => res.send(error));
      }else{
-        return res.render('product/createProduct');
+        return res.render('product/createProduct',{errors: errors.mapped(), old:req.body});
      }
 
     },
@@ -85,16 +88,20 @@ const controller = {
             .catch(error => res.send(error)); 
     },
     update: (req, res) => {
+        let errors = validationResult(req);
         let productUpdate = req.body;
-        productUpdate.id = req.params.id;
+        let id = req.params.id;
         if(!productUpdate.file){
-            productUpdate.file = model.find(req.params.id).file;
+            productUpdate.file = model.find(id).file;
         }
-        Product.update(productUpdate)
-        .then( confirm => {
+        if(errors.isEmpty()){
+          Product.update(productUpdate)
+             .then( confirm => {
             return res.redirect('/products');
-        })
-       .catch( error => res.send(error))
+         })
+            .catch( error => res.send(error))
+        }  
+        return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
     },
 
     remove: (req, res) => {
