@@ -48,16 +48,7 @@ CREATE TABLE IF NOT EXISTS `WineSellersBD`.`categories` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `WineSellersBD`.`stock`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `WineSellersBD`.`stock` (
-  `id(PK)` INT NOT NULL,
-  `quantity` INT NOT NULL,
-  `quantity_alert` INT NOT NULL,
-  `products_id(FK)` INT NULL,
-  PRIMARY KEY (`id(PK)`))
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -152,15 +143,13 @@ CREATE TABLE IF NOT EXISTS `WineSellersBD`.`products` (
   `price` DECIMAL NOT NULL,
   `brands_id(PK)` INT NOT NULL,
   `categories_id(PK)` INT NOT NULL,
-  `stock_id(PK)` INT NOT NULL,
   `sizes_id(PK)` INT NOT NULL,
-  `orderDetails_id` INT NOT NULL,
-  PRIMARY KEY (`id(PK)`, `brands_id(PK)`, `categories_id(PK)`, `stock_id(PK)`, `sizes_id(PK)`, `orderDetails_id`),
+  `quantity` INT NOT NULL,
+  PRIMARY KEY (`id(PK)`, `brands_id(PK)`, `categories_id(PK)`, `sizes_id(PK)`, 'quantity(PK)'),
   INDEX `fk_products_brands_idx` (`brands_id(PK)` ASC),
   INDEX `fk_products_categories1_idx` (`categories_id(PK)` ASC),
   INDEX `fk_products_stock1_idx` (`stock_id(PK)` ASC),
   INDEX `fk_products_sizes1_idx` (`sizes_id(PK)` ASC),
-  INDEX `fk_products_orderDetails1_idx` (`orderDetails_id` ASC),
   CONSTRAINT `fk_products_brands`
     FOREIGN KEY (`brands_id(PK)`)
     REFERENCES `WineSellersBD`.`brands` (`id(PK)`)
@@ -181,11 +170,6 @@ CREATE TABLE IF NOT EXISTS `WineSellersBD`.`products` (
     REFERENCES `WineSellersBD`.`sizes` (`id(PK)`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_products_orderDetails1`
-    FOREIGN KEY (`orderDetails_id`)
-    REFERENCES `WineSellersBD`.`orderDetails` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
