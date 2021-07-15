@@ -1,6 +1,5 @@
 'use strict';
 module.exports = {
-
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Products', {
       id: {
@@ -12,6 +11,24 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.STRING
+      },
+      price: {
+        type: Sequelize.DECIMAL
+      },
+      brands_id: {
+        type: Sequelize.INTEGER
+      },
+      categories: {
+        type: Sequelize.INTEGER
+      },
+      sizes_id: {
+        type: Sequelize.INTEGER
+      },
+      quantity: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -21,25 +38,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-
-    Product.belongsTo(models.Brand,{
-      as:'brand',
-      foreignKey: 'brandId'
-    });
-    Product.belongsTo(models.Category,{
-        as:'category',
-        foreignKey: 'categoryId'
-    });
-    Product.belongsTo(models.Size,{
-      as:'size',
-      foreignKey: 'sizeId'
-    });
-    Product.belongsTo(models.Name,{
-      as:'name',
-      foreignKey: 'nameId'
-    });
   },
-
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Products');
   }

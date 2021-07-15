@@ -11,6 +11,15 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER
       },
+      subtotal: {
+        type: Sequelize.DECIMAL
+      },
+      products_id: {
+        type: Sequelize.INTEGER
+      },
+      orders_id: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
