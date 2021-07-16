@@ -31,6 +31,7 @@ router.post('/register',
          validations.validetUserCreate, 
          userController.create
          );
+         
 router.get('/:id/detailUser',
          authMiddleware,
          userController.detail

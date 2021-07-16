@@ -1,6 +1,6 @@
 
-const jsonDatabase = require('../model/jsonDataBase');
-const model = jsonDatabase('productsDataBase');
+//const jsonDatabase = require('../model/jsonDataBase');
+//const model = jsonDatabase('productsDataBase');
 const {validationResult} = require('express-validator')
 
 const controller = {

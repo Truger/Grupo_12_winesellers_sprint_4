@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         as:'size',
         foreignKey: 'sizeId'
       });
-      Product.belongsToMany(models.Image,{
+      Product.hasMany(models.Image,{
         as:'image',
         foreignKey: 'imageId'
       });

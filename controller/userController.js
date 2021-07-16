@@ -1,5 +1,4 @@
-const jsonDatabase = require("../model/jsonDataBase");
-const model = jsonDatabase("userDataBase");
+const {User} = require('../database/models')
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
@@ -52,27 +51,32 @@ const controller = {
     },
 
   create: (req, res) => {
-    console.log(req.body);
-    let errors = validationResult(req);
-    if (errors.isEmpty()) {
-       let userNew = {
-        name: req.body.name,
-        lastName: req.body.lastName,
-        date: req.body.date,
-        email: req.body.email,
-        password: req.body.password,
-        news: req.body.news,
-        rol: "user",
-        image: req.body.file,
-    };
-
-    model.create(userNew);
-     return res.render("user/login");
-   }else{
-     return res.render("user/register", { errors: errors.mapped() });
-   }
-  },
-
+      try {
+      console.log(req.body);
+     // let errors = validationResult(req);
+      if (true) {
+        console.log('entre acrear user desde controller')
+         let userNew = {
+          name: req.body.name,
+          lastName: req.body.lastName,
+          date: req.body.date,
+          email: req.body.email,
+          password: req.body.password
+      }
+        User.create(userNew)
+              .then(user => {
+                 return res.status(200).json(user);
+             })
+             .catch((error => {
+                 return res.status(401).json(error);
+             }))
+            
+         }
+        }catch(error){
+          console.log(error);
+      } 
+      },
+  
   detail: (req, res) => {
     let user = model.findOne(req.params.id);
 		return res.render('user/detailUser', {user: user});
