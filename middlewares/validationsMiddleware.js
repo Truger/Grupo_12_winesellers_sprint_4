@@ -7,28 +7,24 @@ const validations = {
     validetUserCreate : [
 
     body('name').notEmpty().withMessage('Ingresa tu Nombre!'), 
-    body('userName').notEmpty().withMessage('Completa con tu Nombre de Usuario!'), 
+    body('lastName').notEmpty().withMessage('Completa con tu Nombre de Usuario!'), 
     body('email').isEmail().withMessage('debes ingresar un Email Valido').bail().custom((value, {req}) => {
       let email = req.body.email;
       let userfind = model.findemail(email);
       if(userfind){
         throw new Error('Ya existe un Usuarion con este Email!');
       }
-      console.log('calidation user')
       return true;
     }), 
-    body('fecha').notEmpty().withMessage('Ingresa una Fecha!'), 
-    body('domicilio').notEmpty().withMessage('Completa con tu Direccion!'), 
+    body('date').notEmpty().withMessage('Ingresa una Fecha!'), 
+   // body('domicilio').notEmpty().withMessage('Completa con tu Direccion!'), 
     body('password').isLength({ min: 8 }).withMessage('coloca una clave mayor a 8 digitos pueden ser numero y letras!'), 
-    body('password2').custom((value, {req}) => {
-		if(!req.body.password){
-            throw new Error('ingresa una clave');
-        }
-        if(!req.body.password2){
+    body('passwordRepeat').custom((value, {req}) => {
+        if(!req.body.passwordRepeat){
             throw new Error('repite tu clave');
         }
         let password = req.body.password;
-        let password2 = req.body.password2;
+        let password2 = req.body.passwordRepeat;
 
         if(password != password2){
 			throw new Error('Error las claves ingresadas son Distintas');

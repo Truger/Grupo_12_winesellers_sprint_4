@@ -53,12 +53,14 @@ const controller = {
   create: (req, res) => {
       try {
       console.log(req.body);
-     // let errors = validationResult(req);
-      if (true) {
+     let errors = validationResult(req);
+     console.log(errors)
+      if (errors.isEmpty) {
         console.log('entre acrear user desde controller')
          let userNew = {
-          name: req.body.name,
-          lastName: req.body.lastName,
+          first_name: req.body.name,
+          last_name: req.body.lastName,
+          username: req.body.lastName,
           date: req.body.date,
           email: req.body.email,
           password: req.body.password
@@ -75,7 +77,7 @@ const controller = {
         }catch(error){
           console.log(error);
       } 
-      },
+   },
   
   detail: (req, res) => {
     let user = model.findOne(req.params.id);
