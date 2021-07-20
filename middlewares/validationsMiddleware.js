@@ -35,7 +35,7 @@ const validations = {
  ],
 
     validetUserLogin : [
-    body('userName').notEmpty().withMessage('Ingreasa con tu Nombre de Usuario!'), 
+    body('email').notEmpty().withMessage('Ingreasa con tu Nombre de Usuario!'), 
     body('password').notEmpty().withMessage('coloca tu clave') 
     ],
 

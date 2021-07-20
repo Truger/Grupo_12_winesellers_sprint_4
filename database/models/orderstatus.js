@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       OrderStatus.belongsTo(models.Order,{
         as:'order',
-        foreignKey: 'orderId'
+        foreignKey: 'order_id'
       });
     
     }

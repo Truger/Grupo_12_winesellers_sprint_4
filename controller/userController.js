@@ -11,12 +11,12 @@ const controller = {
     return res.render("user/login");
   },
 
-  loguear: (req, res) => {
+  loguear: async (req, res) => {
+    try {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-     const userLoguear = model.findOne({where: {email: req.body.email}});
-      if (userLoguear) {
-        let password = req.body.password;
+     const userLoguear = await User.findOne({where: {email: req.body.email}});
+     let password = req.body.password;
         if (bcrypt.compareSync(password, userLoguear.password)) {
           delete userLoguear.password;
           req.session.userLogueado = userLoguear;
@@ -28,20 +28,15 @@ const controller = {
           }
           return res.redirect("/products");
         } else {
-          let error = {
-            msg: "Usuario o password Incorrecto!!",
-          };
-          return res.render("user/login", { error: error });
+           return res.render("user/login", { error: error });
         }
       } else {
-        let error = {
-          msg: "Usuario o password Incorrecto!!",
-        };
-
         return res.render("user/login", { error: error });
-      }
-    }
-    return res.render("user/login", { errors: errors.mapped() });
+        }; 
+  } catch (error) {
+      console.log('error de coneccion')
+      return res.render("user/login");
+  }
   },
 
   logout: (req, res) => {
@@ -51,7 +46,6 @@ const controller = {
     },
 
   create: (req, res) => {
-      try {
       console.log(req.body);
      let errors = validationResult(req);
      console.log(errors)
@@ -63,20 +57,19 @@ const controller = {
           username: req.body.lastName,
           date: req.body.date,
           email: req.body.email,
-          password: req.body.password
+          password: bcrypt.hashSync(req.body.password, 10)
       }
         User.create(userNew)
-              .then(user => {
-                 return res.status(200).json(user);
+              .then(function (user){
+                return	res.render('user/login');;
              })
-             .catch((error => {
-                 return res.status(401).json(error);
-             }))
+             .catch(function(error){
+              console.log('error:'+error.message);
+             });
             
+         }else{
+         return res.render('user/register', {errors: errors.mapped(), old:req.body});
          }
-        }catch(error){
-          console.log(error);
-      } 
    },
   
   detail: (req, res) => {

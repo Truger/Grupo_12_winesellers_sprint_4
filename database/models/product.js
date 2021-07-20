@@ -11,24 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Product.belongsTo(models.Category,{
-        as:'categoryt',
-        foreignKey: 'categoryId'
+        as:'category',
+        foreignKey: 'category_id'
       });
       Product.belongsTo(models.Brand,{
         as:'brand',
-        foreignKey: 'brandId'
-      });
-      Product.belongsTo(models.Size,{
-        as:'size',
-        foreignKey: 'sizeId'
+        foreignKey: 'brand_id'
       });
       Product.hasMany(models.Image,{
         as:'image',
-        foreignKey: 'imageId'
-      });
-      Product.belongsTo(models.OrderDetail,{
-        as:'orderdetail',
-        foreignKey: 'orderdetailId'
+        foreignKey: 'product_id'
       });
     }
   };
@@ -36,10 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     price: DataTypes.DECIMAL,
-    brands_id: DataTypes.INTEGER,
-    categories: DataTypes.INTEGER,
-    sizes_id: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER
+    brand_id: DataTypes.INTEGER,
+    category_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Product',

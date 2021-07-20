@@ -17,16 +17,10 @@ module.exports = {
       price: {
         type: Sequelize.DECIMAL
       },
-      brands_id: {
+      brand_id: {
         type: Sequelize.INTEGER
       },
-      categories: {
-        type: Sequelize.INTEGER
-      },
-      sizes_id: {
-        type: Sequelize.INTEGER
-      },
-      quantity: {
+      category_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {

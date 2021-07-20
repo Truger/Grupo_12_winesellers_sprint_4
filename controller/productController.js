@@ -1,50 +1,22 @@
 
-//const jsonDatabase = require('../model/jsonDataBase');
-//const model = jsonDatabase('productsDataBase');
+const {Product, Category} = require('../database/models')
 const {validationResult} = require('express-validator')
 
 const controller = {
 
     index: (req, res) => {
-        const query = req.query;
-        const productCategory = Number(query.productCategory) ? Number(query.productCategory) : null;
-        const productBrand = Number(query.productBrand) ? Number(query.productBrand) : null;
-        const productName = query.productName ? query.productName: '';
-       Product.findAll({
-            include: [
-                {
-                    model: Category,
-                    as: 'category',
-                    where: { id: { [ productCategory ? Op.eq : Op.ne ]: productCategory } }
-                },
-                {
-                    model: Brand,
-                    as: 'brand',
-                    where: { id: { [ productBrand ? Op.eq : Op.ne ]: productBrand } }
-                },
-                {
-                    model: products,
-                    as: 'products',
-                    where: {
-                        [Op.or]: [
-                            {first_name: { [Op.substring]: actorNameKeyword }}
-                         ]
-                    }
-                }
-            ]
+        Product
+        .findAll({
+           include: ['brand','category']
         })
         .then(products => {
-            let respuesta = {
-                meta: {
-                    status : 200,
-                    total: products.length,
-                    url: 'products/'
-                },
-                data: products
-            }
-            return res.render('products/index', { products });
+            return res.render('product/listProduct', {'products':products});
         })
-        .catch(error => res.send(error));
+        .catch(error => {
+            console.log(error)
+            return res.render('product/createProduct');
+        });
+
     },
 
     create: (req, res) => {
@@ -52,6 +24,7 @@ const controller = {
     },
 
     save: (req, res) => {
+        console.log('entro a save')
         let errors = validationResult(req);
 		if(errors.isEmpty()){
         let productNew = req.body;  
