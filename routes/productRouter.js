@@ -20,7 +20,7 @@ router.get('/create',
 router.post('/',
          authMiddleware, 
          upload.single('file'),
-       //  validations.productValidation,
+         validations.productValidation,
           productController.save
           );
 router.get('/:id/edit',

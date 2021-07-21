@@ -20,12 +20,18 @@ const controller = {
 
     },
 
-    create: (req, res) => {
-         return res.render('product/createProduct');
+    create:async (req, res) => {
+        try {
+            let brands = await Brand.findAll();
+            let categories = await Category.findAll();
+            return res.render('product/createProduct', {categories, brands })
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     save: async (req, res) => {
-        console.log('entro a save')
+        console.log(req.file)
         let errors = validationResult(req);
 		if(errors.isEmpty()){
         let productNew = req.body;  
@@ -48,7 +54,9 @@ const controller = {
          
 
      }else{
-        return res.render('product/createProduct',{errors: errors.mapped(), old:req.body});
+        let brands = await Brand.findAll();
+        let categories = await Category.findAll();
+        return res.render('product/createProduct',{errors: errors.mapped(), old:req.body, brands, categories});
      }
 
     },
@@ -78,13 +86,16 @@ const controller = {
     update: async (req, res) => {
         console.log(req.body)
         let errors = validationResult(req);
-        let productUpdate = req.body;
+        console.log(errors)
+        let product = req.body;
         let id = req.params.id;
         if(errors.isEmpty()){
-          let productUpdate = await Product.update(productUpdate)
+            console.log('no hay errorores')
+          let productUpdate = await Product.update(product, {where:{id:id}})
           if(productUpdate){
 
              if(req.file){
+                console.log('hay file new')
             let imageNew = {
                 name: req.file.filename,
                 product_id: id,
@@ -93,16 +104,23 @@ const controller = {
                   where:{product_id:id}
               })
               if(imageUpdate){
+                console.log('update image ok')
                 return res.redirect('/products');
               }else{
                   console.log('error al actualizar el producto')
               }
+          }else{
+            return res.redirect('/products');
           }
-          return res.redirect('/products');
+        
+         }else{
+            return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
          }
-         return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
+        
+        }else{
+            return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate});
         }  
-        return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
+         
     },
 
     remove: (req, res) => {

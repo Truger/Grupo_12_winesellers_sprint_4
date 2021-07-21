@@ -40,16 +40,17 @@ const validations = {
     ],
 
     productValidation : [
-    body("category").not().isIn("0").withMessage("Selecciona una Categoria"),
+    body("category_id").not().isIn("0").withMessage("Selecciona una Categoria"),
+    body("brand_id").not().isIn("0").withMessage("Selecciona una marca"),
     body("name").notEmpty().withMessage("ingresar el Nombre del producto"),
     body("description").notEmpty().withMessage("agrega una descripcion"),
     body("stock").notEmpty().withMessage("introduce la cantidad").bail().isNumeric().withMessage("este campo deve ser un Numero"),
     body("price").notEmpty().withMessage("indicar el precio $").bail().isNumeric().withMessage("este campo deve ser un Numero"),
     body("file").custom((value, { req }) => {
-      let acceptedExtensions = [".jpg", ".npg", ".gif"];
+      let acceptedExtensions = [".jpg", ".npg", ".gif", ".jpeg"];
       if (!req.file) {
         console.log("no tiene un file");
-        if (req.body.oldFile) {
+        if (req.body.oldImage) {
           console.log("pero tiene un fileOld");
           return true;
         } else {

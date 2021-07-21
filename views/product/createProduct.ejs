@@ -22,26 +22,37 @@
                             <div class="product-create-file">
                                 <h2>Imagen</h2>
                                 <input type="file" name="file">
+                                <% if (locals.errors && errors.file){ %>
+                                    <div class="text-danger">
+                                        <%= errors.file.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
                             <div class="setction">
                                 <div class="product-create-category">
-                                    <h2>Categoria</h2>
-                                    <select class="product-form-select" name="category_id">
-                                        <option selected>Selecciona una categoria</option>
-                                        <option value="1">vinos</option>
-                                        <option value="2">Espumantes</option>
-                                        <option value="3">cervezas</option>
+                                    <select name="category_id">
+                                        <% categories.forEach(onecategory => { %>
+                                         <option value="<%= onecategory.id %>" <%=locals.old && old.category_id=='onecategory.id' ? 'selected' : '' %>><%= onecategory.name %> </option>
+                                        <% }) %>
                                     </select>
+                                    <% if (locals.errors && errors.category){ %>
+                                        <div class="text-danger">
+                                            <%= errors.category_id.msg %>
+                                        </div>
+                                        <% } %>
                                 </div>
                                 <div class="product-create-category">
-                                    <h2>Marcas</h2>
-                                    <select class="product-form-select" name="brand_id">
-                                        <option selected>Selecciona una Marca</option>
-                                        <option value="1">CocaCola</option>
-                                        <option value="2">Quilmes</option>
-                                        <option value="3">Dervi</option>
+                                    <select name="brand_id">
+                                        <% brands.forEach(oneBrand => { %>
+                                         <option value="<%= oneBrand.id %>" <%= locals.old && old.brand_id == 'oneBrand.id' ? 'selected' : '' %> ><%= oneBrand.name %></option>
+                                        <% }) %>
                                     </select>
-                                </div>
+                                    <% if (locals.errors && errors.brand_id){ %>
+                                        <div class="text-danger">
+                                            <%= errors.brand_id.msg %>
+                                        </div>
+                                        <% } %>
+                                           </div>
                                 <div class="product-create-name">
                                     <h2>Nombre</h2>
                                     <input type="text" name="name" placeholder="Nombre" required maxlength="30">
