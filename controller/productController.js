@@ -1,5 +1,5 @@
 
-const {Product, Category} = require('../database/models')
+const {Product, Category, Image, Brand} = require('../database/models')
 const {validationResult} = require('express-validator')
 
 const controller = {
@@ -7,9 +7,10 @@ const controller = {
     index: (req, res) => {
         Product
         .findAll({
-           include: ['brand','category']
+           include: ['brand','category','image']
         })
         .then(products => {
+            console.log(products[0].image[0].name)
             return res.render('product/listProduct', {'products':products});
         })
         .catch(error => {
@@ -23,16 +24,29 @@ const controller = {
          return res.render('product/createProduct');
     },
 
-    save: (req, res) => {
+    save: async (req, res) => {
         console.log('entro a save')
         let errors = validationResult(req);
 		if(errors.isEmpty()){
         let productNew = req.body;  
-           Product.create(productNew)
-           .then( confirm => {
+        console.log(req.file.filename)
+        console.log(productNew)
+          let newPrduct = await Product.create(productNew)
+       
+        if(newPrduct){
+                let imageNew = {
+                name: req.file.filename,
+                product_id: newPrduct.id,
+             }
+        let newImage = await Image.create(imageNew)
+        if(newImage){
             res.redirect('/products');
-           })
-           .catch(error => res.send(error));
+    }else{
+        console.log('error al guardar image')
+    }
+          } 
+         
+
      }else{
         return res.render('product/createProduct',{errors: errors.mapped(), old:req.body});
      }
@@ -50,29 +64,43 @@ const controller = {
             .catch(error => res.send(error));  
    },
 
-    edit: (req, res) => {
-         db.Product.findByPk(req.params.id,
-            {
-                include : ['category']
-            })
-            .then(product => {
-                return res.render('product/editProduct', {'product':product});
-            })
-            .catch(error => res.send(error)); 
+    edit: async (req, res) => {
+        try {
+            let brands = await Brand.findAll();
+            let categories = await Category.findAll();
+            let product = await Product.findByPk(req.params.id, { include: ['brand', 'category','image'] });
+            return res.render('product/editProduct', { product, categories, brands })
+        } catch (error) {
+            console.log(error);
+        }
     },
-    update: (req, res) => {
+
+    update: async (req, res) => {
+        console.log(req.body)
         let errors = validationResult(req);
         let productUpdate = req.body;
         let id = req.params.id;
-        if(!productUpdate.file){
-            productUpdate.file = model.find(id).file;
-        }
         if(errors.isEmpty()){
-          Product.update(productUpdate)
-             .then( confirm => {
-            return res.redirect('/products');
-         })
-            .catch( error => res.send(error))
+          let productUpdate = await Product.update(productUpdate)
+          if(productUpdate){
+
+             if(req.file){
+            let imageNew = {
+                name: req.file.filename,
+                product_id: id,
+             }
+              let imageUpdate = await Image.update(imageNew, {
+                  where:{product_id:id}
+              })
+              if(imageUpdate){
+                return res.redirect('/products');
+              }else{
+                  console.log('error al actualizar el producto')
+              }
+          }
+          return res.redirect('/products');
+         }
+         return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
         }  
         return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
     },
