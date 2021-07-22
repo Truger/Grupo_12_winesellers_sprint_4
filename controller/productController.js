@@ -20,6 +20,22 @@ const controller = {
 
     },
 
+    index2: (req, res) => {
+        Product
+        .findAll({
+           include: ['brand','category','image']
+        })
+        .then(products => {
+            console.log(products[0].image[0].name)
+            return res.render('index', {'products':products});
+        })
+        .catch(error => {
+            console.log(error)
+            return res.render('product/blabla');
+        });
+
+    },
+
     create:async (req, res) => {
         try {
             let brands = await Brand.findAll();
