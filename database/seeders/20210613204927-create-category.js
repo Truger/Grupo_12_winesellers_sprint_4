@@ -4,46 +4,35 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
  Example:
       await queryInterface.bulkInsert('Categories', [{
-        name: 'audio',
+        name: 'Blancos',
          },
       {
-        name: 'video',
+        name: 'Blend',
       },
       {
-        name: 'teclados',
+        name: 'Dulces',
       },
       {
-        name: 'mouses',
+        name: 'Rosados',
       },
       {
-        name: 'insumos',
+        name: 'Tintos',
       },
       {
-        name: 'toner',
+        name: 'Espumantes',
       },
     {
-      name: 'auriculares',
+      name: 'Esporituosas',
     },
     {
-      name: 'memorias',
+      name: 'Cervezas',
     },
     {
-      name: 'camaras',
+      name: 'Whiskys',
     },
     {
-      name: 'cartuchos',
-    },
-    {
-      name: 'herramientas',
-    },
-    {
-      name: 'monitores',
-    },
-    {
-      name: 'computadoras',
-    },
-    {
-      name: 'placas de video',
+      name: 'Accesorios',
+
     }], {});
     
   },

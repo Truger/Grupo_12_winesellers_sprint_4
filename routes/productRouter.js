@@ -13,6 +13,8 @@ const authMiddleware = require('../middlewares/authMiddlewar')
 
 router.get('/', productController.index);
 
+router.get('/index', productController.index2);
+
 router.get('/create',
         authMiddleware, 
         productController.create
@@ -20,7 +22,7 @@ router.get('/create',
 router.post('/',
          authMiddleware, 
          upload.single('file'),
-       //  validations.productValidation,
+         validations.productValidation,
           productController.save
           );
 router.get('/:id/edit',

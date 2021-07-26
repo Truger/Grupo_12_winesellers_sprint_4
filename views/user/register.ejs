@@ -19,18 +19,39 @@
                         <form action="/user/register" method="POST"
                             enctype="multipart/form-data">
                             <div class="r-name">
-                                <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:'
-                                    required />
+                                <input type='text' name='name' placeholder='nombre:'
+                                value="<%= locals.old && old.name ? old.name : '' %>">
+                            <% if (locals.errors && errors.name){ %>
+                                <div class="text-danger">
+                                    <%= errors.name.msg %>
+                                </div>
+                                <% } %>
                             </div>
                             <div class="r-lasName">
-                                <input type='text' name='lastName' minlength="3" maxlength="20" placeholder='apellido:'
-                                    required />
+                                <input type='text' name='lastName' placeholder='apellido:'
+                                value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+                           <% if (locals.errors && errors.lastName){ %>
+                               <div class="text-danger">
+                                   <%= errors.lastName.msg %>
+                               </div>
+                               <% } %>
                             </div>
                             <div class="r-date">
-                                <input type='date' name='date' placeholder='Fecha Nac:' required />
+                                <input type='date' name='date' placeholder='Fecha Nac:' value="<%= locals.old && old.date ? old.date : '' %>" class="control">
+                                <% if (locals.errors && errors.date){ %>
+                                    <div class="text-danger">
+                                        <%= errors.date.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
                             <div class="r-email">
-                                <input type='email' name='email' placeholder='Email:' required />
+                                <input type='text' name='email' placeholder='Email:' 
+                                value="<%= locals.old && old.email ? old.email : '' %>">
+                            <% if (locals.errors && errors.email){ %>
+                                <div class="text-danger">
+                                    <%= errors.email.msg %>
+                                </div>
+                                <% } %>
                             </div>
                             <div class="image-perfil">
                                 <label for="" class="titulo">Foto de Perfil</label>
@@ -38,19 +59,29 @@
                                
                             </div>
                             <div class="r-password">
-                                <input type='password' name='password' minlength="8" maxlength="20"
-                                    placeholder='password:' required />
+                                <input type='password' name='password'
+                                    placeholder='password:'  />
+                                    <% if (locals.errors && errors.password){ %>
+                                        <div class="text-danger">
+                                            <%= errors.password.msg %>
+                                        </div>
+                                        <% } %>
                             </div>
                             <div class="r-passwordRepeat">
-                                <input type='password' name='passwordRepeat' minlength="8" maxlength="20"
-                                    placeholder='Repita el password:' required />
+                                <input type='password' name='passwordRepeat'
+                                    placeholder='Repita el password:'  />
+                                    <% if (locals.errors && errors.passwordRepeat){ %>
+                                        <div class="text-danger">
+                                            <%= errors.passwordRepeat.msg %>
+                                        </div>
+                                        <% } %>
                             </div>
                             <div class="r-checkbox">
-                                <label class="check"><input type='checkbox' name='terminos' required>HE LEIDO Y ACEPTO
-                                    LOS</label><a href='/terminosCondiciones'>TERMINOS Y CONDICIONES</a>
+                                <label class="check"><input type='checkbox' name='terminos' required value="terminos" <%=locals.old && old.terminos == "terminos"? 'checked' : '' %>>HE LEIDO Y ACEPTO
+                                    LOS</label><a href='https://www.mercadolibre.com.co/ayuda/terminos-condiciones-de-uso_1841'>TERMINOS Y CONDICIONES</a>
                             </div>
                             <div class="r-checkbox">
-                                <label class="check"><input type='checkbox' name='news'>QUIERO RECIBIR OFERTAS
+                                <label class="check"><input type='checkbox' name='news' value="news" <%=locals.old && old.news == "news"? 'checked' : '' %>>QUIERO RECIBIR OFERTAS
                                     Y
                                     OTRAS
                                     NOTIFICACIONES</label>
