@@ -31,7 +31,7 @@ const controller = {
         })
         .catch(error => {
             console.log(error)
-            return res.render('product/blabla');
+            return res.render('home');
         });
 
     },
