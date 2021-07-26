@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head-index')%>
-<body class="home">
-    <%- include('partials/header')%>
-    <link rel="stylesheet" href="/css/productsList.css" />
-    <main>
-        <div class="container">
-            <section>
-                <div class="columns is-multiline product-list">
-                    <% products.forEach(product => { %>
-                        <%- include('./product/product', { product }) %>
-                    <% })%>
-                </div>
-            </section>
-        </div>
-    </main>
-    <%- include('partials/footer')%>> 
+
+<%- include('partials/head-index')%>
+
+<body>
+
+  <%- include('partials/header')%>
+
+  <main>
+    <div class="container">
+        <section>
+            <div class="columns is-multiline product-list">
+                <% products.forEach(product => { %>
+                    <%- include('product/product-galery', { product }) %>
+                <% })%>
+            </div>
+        </section>
+    </div>
+
+  </main>
+
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <%- include('partials/footer')%>
+
 </body>
+
 </html>

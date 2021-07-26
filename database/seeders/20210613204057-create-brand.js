@@ -4,46 +4,46 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
    Example:
       await queryInterface.bulkInsert('Brands', [{
-        name: 'genius',
+        name: 'Alta vista',
       },
       {
-        name: 'noga',
+        name: 'alamos',
       },
       {
-        name: 'netmak',
+        name: 'Angelica zapata',
       },
       {
-        name: 'philips',
+        name: 'Catena Zapata',
       },
       {
-        name: 'blobal',
+        name: 'D.V Catena',
       },
       {
-        name: 'logitech',
+        name: 'Saint Felicien',
       },
     {
-      name: 'tecnobive',
+      name: 'Luigi Bosca',
     },
     {
-      name: 'starwave',
+      name: 'La Linda',
     },
     {
-      name: 'LG',
+      name: 'Los Nobles',
     },
     {
-      name: 'sony',
+      name: 'Altas Cumbres',
     },
     {
-      name: 'lenovo',
+      name: 'Lagarde',
     },
     {
-      name: 'Hp',
+      name: 'rutini',
     },
     {
-      name: 'wester Digital',
+      name: 'Trumpeter',
     },
     {
-      name: 'sandisk',
+      name: 'Etchart Armaldo B.',
     }], {});
     
   },

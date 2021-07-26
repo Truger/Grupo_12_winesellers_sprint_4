@@ -1,21 +1,22 @@
 const { body } = require('express-validator');
 const path = require('path');
-let jsonDatabaseP = require('../model/jsonDatabase');
-let model = jsonDatabaseP('userDataBase')
+const {Product, Category, User, Brand} = require('../database/models')
         
 const validations = {
     validetUserCreate : [
 
     body('name').notEmpty().withMessage('Ingresa tu Nombre!'), 
-    body('lastName').notEmpty().withMessage('Completa con tu Nombre de Usuario!'), 
-    body('email').isEmail().withMessage('debes ingresar un Email Valido').bail().custom((value, {req}) => {
-      let email = req.body.email;
-      let userfind = model.findemail(email);
-      if(userfind){
-        throw new Error('Ya existe un Usuarion con este Email!');
-      }
-      return true;
-    }), 
+    body('lastName').notEmpty().withMessage('Completa con tu Apellido!'), 
+    body('email').isEmail().withMessage('debes ingresar un Email Valido').bail().custom (async (value, {req}) => {
+      const user = await User.findOne({
+        where: { email: req.body.email }
+      });
+      if(user){
+          throw new Error('Email ya Existe!');
+     }
+  return true;
+      
+}),
     body('date').notEmpty().withMessage('Ingresa una Fecha!'), 
    // body('domicilio').notEmpty().withMessage('Completa con tu Direccion!'), 
     body('password').isLength({ min: 8 }).withMessage('coloca una clave mayor a 8 digitos pueden ser numero y letras!'), 
@@ -35,8 +36,8 @@ const validations = {
  ],
 
     validetUserLogin : [
-    body('email').notEmpty().withMessage('Ingreasa con tu Nombre de Usuario!'), 
-    body('password').notEmpty().withMessage('coloca tu clave') 
+      body('email').isEmail().withMessage('user or key not validated'),
+      body('password').isLength({ min: 8 }).withMessage('user or key not validated'), 
     ],
 
     productValidation : [
@@ -68,5 +69,6 @@ const validations = {
     }),
   ]
 }
+
 
   module.exports = validations; 

@@ -17,6 +17,9 @@ module.exports = {
       price: {
         type: Sequelize.DECIMAL
       },
+      stock: {
+        type: Sequelize.DECIMAL
+      },
       brand_id: {
         type: Sequelize.INTEGER
       },
