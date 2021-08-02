@@ -1,5 +1,4 @@
-
-const {Product, Category, Image, Brand} = require('../database/models')
+const {Product, Category, Image, Brand} = require('../../database/models')
 const {validationResult} = require('express-validator')
 
 const controller = {
@@ -10,28 +9,11 @@ const controller = {
            include: ['brand','category','image']
         })
         .then(products => {
-            console.log(products[0].image[0].name)
-            return res.render('product/listProduct', {'products':products});
+            return res.status(200).json(products );
         })
         .catch(error => {
             console.log(error)
-            return res.render('product/createProduct');
-        });
-
-    },
-
-    index2: (req, res) => {
-        Product
-        .findAll({
-           include: ['brand','category','image']
-        })
-        .then(products => {
-            console.log(products[0].image[0].name)
-            return res.render('index', {'products':products});
-        })
-        .catch(error => {
-            console.log(error)
-            return res.render('home');
+            return res.status(401).json(error);
         });
 
     },
@@ -40,20 +22,17 @@ const controller = {
         try {
             let brands = await Brand.findAll();
             let categories = await Category.findAll();
-            return res.render('product/createProduct', {categories, brands })
+            return res.status(200).json(brands,categories);
         } catch (error) {
-            console.log(error);
+            return res.status(400).json('products no found');
         }
     },
 
     save: async (req, res) => {
-        console.log(req.file)
         let errors = validationResult(req);
 		if(errors.isEmpty()){
         let productNew = req.body;  
-        console.log(req.file.filename)
-        console.log(productNew)
-          let newPrduct = await Product.create(productNew)
+        let newPrduct = await Product.create(productNew)
        
         if(newPrduct){
                 let imageNew = {
@@ -62,17 +41,17 @@ const controller = {
              }
         let newImage = await Image.create(imageNew)
         if(newImage){
-            res.redirect('/products');
+            return res.status(200).json(confirm);
     }else{
-        console.log('error al guardar image')
-    }
-          } 
+        return res.status(401).json(error);
+       }
+    } 
          
-
      }else{
         let brands = await Brand.findAll();
         let categories = await Category.findAll();
-        return res.render('product/createProduct',{errors: errors.mapped(), old:req.body, brands, categories});
+        let old = req.body;
+        return res.status(401).json(errors,old, brands, categories);
      }
 
     },
@@ -80,9 +59,9 @@ const controller = {
     detail:async (req, res) => {
         try {
             let product = await Product.findByPk(req.params.id, { include: ['brand', 'category','image'] });
-            return res.render('product/detailProduct', {'product':product});
+            return res.status(200).json(product);
         } catch (error) {
-            console.log(error.message);
+            return res.status(401).json(error);
         }
 
    },
@@ -92,25 +71,21 @@ const controller = {
             let brands = await Brand.findAll();
             let categories = await Category.findAll();
             let product = await Product.findByPk(req.params.id, { include: ['brand', 'category','image'] });
-            return res.render('product/editProduct', { product, categories, brands })
+            return res.status(200).json({product, brands, categories});
         } catch (error) {
-            console.log(error);
+            return res.status(400).json(error);
         }
     },
 
     update: async (req, res) => {
-        console.log(req.body)
         let errors = validationResult(req);
-        console.log(errors)
-        let product = req.body;
+        let product = JSON.parse(req.body);
         let id = req.params.id;
+        console.log(product)
         if(errors.isEmpty()){
-            console.log('no hay errorores')
           let productUpdate = await Product.update(product, {where:{id:id}})
           if(productUpdate){
-
              if(req.file){
-                console.log('hay file new')
             let imageNew = {
                 name: req.file.filename,
                 product_id: id,
@@ -119,33 +94,33 @@ const controller = {
                   where:{product_id:id}
               })
               if(imageUpdate){
-                console.log('update image ok')
-                return res.redirect('/products');
+                return res.status(200).json(productUpdate);
               }else{
-                  console.log('error al actualizar el producto')
+                return res.status(401).json(error);
               }
           }else{
-            return res.redirect('/products');
+            return res.status(401).json(errors);
           }
         
          }else{
-            return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
+            return res.status(401).json(errors);
          }
         
         }else{
-            return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate});
+            return res.status(401).json(errors);
         }  
          
     },
 
-    remove: (req, res) => {
+    remove: async (req, res) => {
+        try{
         let id = req.params.id;
-        Product
+        await Product
         .destroy({where: {id: id}, force: true}) // force: true es para asegurar que se ejecute la acción
-        .then(confirm => {
-        return res.redirect('/products');
-    })
-    .catch(error => res.send(error))
+        return res.status(200).json('product remove succesfully')
+        }catch(error){
+        return res.status(400).json('error en backend');
+        }
     }
 
 };
