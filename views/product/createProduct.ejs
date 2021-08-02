@@ -12,7 +12,7 @@
                     <div class="titular">
                         <h2 class="titulo">Agregar Producto</h2>
                     </div>
-                    <form action="/products" method="POST" enctype="multipart/form-data">
+                    <form action="/products" method="POST" id="form-create" enctype="multipart/form-data">
                         <article class="product-create-article">
                             <div class="icoExit">
                                 <a href="/products">
@@ -55,7 +55,7 @@
                                            </div>
                                 <div class="product-create-name">
                                     <h2>Nombre</h2>
-                                    <input type="text" name="name" value="<%= locals.old && old.name ? old.name : '' %>"
+                                    <input type="text" name="name" id="prod-name" value="<%= locals.old && old.name ? old.name : '' %>"
                                         placeholder="Nombre" maxlength="30">
                                     <% if (locals.errors && errors.name){ %>
                                         <div class="text-danger">
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="product-create-price">
                                         <h2>Precio:</h2>
-                                        <input type='number' name="price"
+                                        <input type='number' name="price" id="prod-price"
                                         value="<%= locals.old && old.price ? old.price : '' %>" placeholder="$"
                                         maxlength="6">
                                     <% if (locals.errors && errors.price){ %>
@@ -100,6 +100,9 @@
                                     <button class="btn-agregar" type='submit'>Agregar</button>
                                     <button class="btn-delete" type='reset'><i class="fas fa-trash-alt"></i></button>
                                 </div>
+                            </div>
+                            <div class="errores">
+                                <ul></ul>
                             </div>
 
                         </article>

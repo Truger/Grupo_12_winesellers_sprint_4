@@ -20,12 +20,12 @@
                                 <%= errors.msg %>
                             </div>
                             <% } %>
-                        <form action="/user/loguear" method="POST" class="form-login">
+                        <form action="/user/loguear" method="POST" class="form-login" id="form-login">
                             <div class="r-name">
-                                <input type='email' name='email' laceholder='example@gmail.com:' value="admin@gmail.com"/>
+                                <input type='email' name='email' id="login-email" laceholder='example@gmail.com:' value="admin@gmail.com"/>
                               </div>
                             <div class="r-password">
-                                <input type='password' name='password' placeholder='admin123:'/>
+                                <input type='password' name='password' id="login-password" placeholder='admin123:'/>
                             </div>
                             <div class="r-checkbox">
                                 <label class="check"><input type="checkbox" name="remember" value="guardar">Recordar
@@ -35,6 +35,9 @@
                             <button type='submit' class="btn-login">Login</button>
                             <br><br>
                             <div class="r-registrar">No estas registrado? <a href='/user/register'>Registrarme</a></div>
+                            <div class="errores">
+                                <ul></ul>
+                            </div>
                         </form>
                     </div>
 

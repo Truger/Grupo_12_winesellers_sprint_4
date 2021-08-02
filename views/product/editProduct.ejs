@@ -16,7 +16,7 @@
                                     <h2 class="titulo">Editar Producto</h2>
                                 </div>
                                 <form action="/products/<%=product.id %>?_method=PUT" method="POST"
-                                    enctype="multipart/form-data">
+                                    enctype="multipart/form-data" id="form-edit">
                                     <article class="product-create-article">
                                         <div class="icoExit">
                                             <a href="/products">
@@ -58,7 +58,7 @@
                                             <div class="product-create-name">
                                                 <h2>Nombre</h2>
                                                 <input type="text" name="name" placeholder="Nombre" required
-                                                    maxlength="30" value="<%=product.name %>">
+                                                    maxlength="30" id="edit-name" value="<%=product.name %>">
                                             </div>
                                             <div class="product-create-descripcion">
                                                 <h2>Descripcion</h2>
@@ -73,7 +73,7 @@
                                                 </div>
                                                 <div class="product-create-price">
                                                     <h2>Precio:</h2>
-                                                    <input type='text' name="price" required placeholder="$"
+                                                    <input type='text' name="price" id="edit-price" required placeholder="$"
                                                         maxlength="6" value="<%=product.price %>">
                                                 </div>
                                             </div>
