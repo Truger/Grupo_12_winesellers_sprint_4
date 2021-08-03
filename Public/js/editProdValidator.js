@@ -8,11 +8,15 @@ window.addEventListener("load", function() {
     formulario.addEventListener("submit", function (e) {
   
         let errores = [];
+        errores.push({
+            field:"name",
+            erro:"el campo no puede ser vacio"
+        })
     
         if(productName.value == '' ){
             errores.push('El nombre no puede estar vacío');
         }else if (productName.value.length < 7) {
-            eroores.push('El nombre debe contener al menos 6 caracteres');
+            errores.push('El nombre debe contener al menos 6 caracteres');
         }
 
         if(productDescription.value == '' ){
@@ -23,11 +27,11 @@ window.addEventListener("load", function() {
 
         if(productPrice.value == '' ){
             errores.push('El precio no puede estar vacío');
-        }else if (price.value <= 0) {
+        }else if (productPrice.value <= 0) {
             errores.push('El valor no puede ser 0');
         };
 
-        if (errores.lenght > 0) {
+        if (errores.length > 0) {
             e.preventDefault();
    
             let ulErrores= document.querySelector("div.errores ul");
@@ -35,6 +39,8 @@ window.addEventListener("load", function() {
                 ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
                 
             }
+            errores.length=0;
         }
-    });     
+    }); 
+
 });

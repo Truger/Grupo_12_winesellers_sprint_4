@@ -3,7 +3,7 @@
 
 <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/productCreate.css" />
-
+    <!--<script src="/js/editProdValidator.js"></script>-->
     <body>
         <%- include('../partials/header')%>
             <main>
@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="product-create-name">
                                                 <h2>Nombre</h2>
-                                                <input type="text" name="name" placeholder="Nombre" required
+                                                <input type="text" name="name" placeholder="Nombre" 
                                                     maxlength="30" id="edit-name" value="<%=product.name %>">
                                             </div>
                                             <div class="product-create-descripcion">
@@ -68,12 +68,12 @@
                                             <div class="product-create-row">
                                                 <div class="product-create-stock">
                                                     <h2>Stock:</h2>
-                                                    <input type="number" name="stock" class="edit-stock" required
+                                                    <input type="number" name="stock" class="edit-stock" 
                                                         maxlength="6" value="<%=product.stock %>">
                                                 </div>
                                                 <div class="product-create-price">
                                                     <h2>Precio:</h2>
-                                                    <input type='text' name="price" id="edit-price" required placeholder="$"
+                                                    <input type='text' name="price" id="edit-price"  placeholder="$"
                                                         maxlength="6" value="<%=product.price %>">
                                                 </div>
                                             </div>
@@ -86,10 +86,14 @@
                                     method="POST">
                                     <button type="submit" class="btn-delete">Borrar</button>
                                 </form>
-                            </div>   
+                            </div>  
+                            <div class="errores">
+                                <ul></ul>
+                            </div> 
                             </article>
                             </div>
                         </div>
+
                     </section>
                 </div>
             </main>
