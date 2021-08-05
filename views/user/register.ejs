@@ -2,8 +2,10 @@
 <html lang="en">
 
 <%- include('../partials/head')%>
-
+<script  src="\js\validations\validations-register.js"></script>
 <body>
+
+    
     <div id="wrapper">
         <div class="headero">
             <%- include('../partials/header')%>
@@ -16,15 +18,14 @@
                         <h2 class="titulo">.Registrate</h2>
                     </div>
                     <div class='register'>
-                        <form action="/user/register" method="POST"
+                        
+                        <form action="/user/register" id="formregistro" method="POST"
                             enctype="multipart/form-data">
                             <div class="r-name">
-                                <input type='text' name='name' minlength="3" maxlength="20" placeholder='nombre:'
-                                    required />
+                                <input type='text' name='name' id="namevalid" placeholder='nombre:'/>
                             </div>
                             <div class="r-lasName">
-                                <input type='text' name='lastName' minlength="3" maxlength="20" placeholder='apellido:'
-                                    required />
+                                <input type='text' name='lastName' placeholder='apellido:' />
                             </div>
                             <div class="r-date">
                                 <input type='date' name='date' placeholder='Fecha Nac:' required />
@@ -58,6 +59,7 @@
                             <button type='submit' class="btn-registrar">Registrar</button>
                             <br><br>
                             <div class="r-registrado">Ya estas registrado? <a href='/user/login'>Inicia Secion</a></div>
+                            <div class= "errores"> <ul></ul> </div>
                         </form>
                     </div>
 
@@ -66,8 +68,13 @@
         </div>
         <div class="footero">
             <%- include('../partials/footer')%>
-        </div>
+           
     </div>
+
+    
+        </div>
 </body>
+
+
 
 </html>

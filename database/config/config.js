@@ -15,6 +15,6 @@ module.exports =
     seederStorageTableName: "seeds",
 
     migrationStorage: "sequelize",
-    migrationStorageTableName: "migrations"
+    migrationStorageTableName: "migrations",
 
 }
