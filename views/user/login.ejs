@@ -2,7 +2,7 @@
 <html lang="en">
 
 <%- include ('../partials/head') %>
-
+<script src="/js/loginValidator.js"></script>
 <body>
     <div id="wrapper">
         <div class="headero">
@@ -12,31 +12,20 @@
             <main>
                 <div id='container'>
                     <div class="titular">
-                        <h2 class="titulo">.Ingresa</h2>
+                        <h2 class="titulo">Ingresar</h2>
                     </div>
                     <div class='login'>
-                        <% if (locals.error){ %>
+                        <% if (locals.errors){ %>
                             <div class="text-danger">
-                                <%= error.msg %>
+                                <%= errors.msg %>
                             </div>
                             <% } %>
-                        <form action="/user/loguear" method="POST" class="form-login">
+                        <form action="/user/loguear" method="POST" class="form-login" id="form-login">
                             <div class="r-name">
-                                <input type='email' name='email' laceholder='example@gmail.com:' value="admin@gmail.com"/>
-                                    <% if (locals.errors && errors.email){ %>
-                                        <div class="text-danger">
-                                            <%= errors.email.msg %>
-                                        </div>
-                                        <% } %>
-                            </div>
+                                <input type='email' name='email' id="login-email" laceholder='example@gmail.com:' value="admin@gmail.com"/>
+                              </div>
                             <div class="r-password">
-                                <input type='password' name='password' minlength="8" maxlength="20"
-                                    placeholder='admin123:'/>
-                                    <% if (locals.errors && errors.password){ %>
-                                        <div class="text-danger">
-                                            <%= errors.password.msg %>
-                                        </div>
-                                        <% } %>
+                                <input type='password' name='password' id="login-password" placeholder='admin123:'/>
                             </div>
                             <div class="r-checkbox">
                                 <label class="check"><input type="checkbox" name="remember" value="guardar">Recordar
@@ -46,11 +35,14 @@
                             <button type='submit' class="btn-login">Login</button>
                             <br><br>
                             <div class="r-registrar">No estas registrado? <a href='/user/register'>Registrarme</a></div>
+                            <div class="errores">
+                                <ul></ul>
+                            </div>
                         </form>
                     </div>
 
                 </div>
-            </main>
+           </main>
         </div>
         <div class="footero">
             <%- include('../partials/footer')%>

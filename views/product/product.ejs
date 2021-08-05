@@ -1,12 +1,13 @@
 <article class="article">
    <!-- <div class="iconoBorrar"><a href="/products/<%=product.id %>/edit"><i class="fas fa-trash-alt"></i></a></div>-->
     <div class="producto">
-        <h3><%= product.name %></h3>
-        <img src="/Img/<%= product.file %>" alt="vino" class="product_img">
+        <h3><%= product.name%></h3>
+    <img src="/Img/product/<%= product.image[0].name %>" alt="vino" class="product_img">
     </div>
     <div class="descripcion">
+     <h3><%= product.category.name%>/<%= product.brand.name%></h3><h3></h3> 
         <h3>Descripcion</h3>
-        <p><%= product.description %></p>
+          <p><%= product.description %></p>
     </div>
     <div class="row">
         <div class="cantidad">

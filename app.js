@@ -6,6 +6,10 @@ const userRouter = require('./routes/userRouter');
 const cartRouter = require('./routes/cartRouter');
 const productRouter = require('./routes/productRouter');
 const methodOverride = require('method-override');
+
+const userAPIRouter = require('./routes/api/userAPIRouter');
+const productAPIRouter = require('./routes/api/productAPIRouter');
+
 app.use(express.static("Public"));
 const userLoggertMiddleware = require('./middlewares/userLoggertMiddleware');
 app.set('view engine', 'ejs');
@@ -25,6 +29,10 @@ app.use("/user", userRouter);
 app.use('/cart', cartRouter);
 app.use('/products', productRouter);
 
+
+app.use('/api/products', productAPIRouter);
+app.use('/api/users', userAPIRouter);
+
 app.get("/", (req, res) => { 
     res.render('home') 
 });
@@ -34,7 +42,8 @@ app.get("/productDetails", (req, res) => {
 });
 
 app.use((req, res, next) =>{
-    res.status(404).render('page_404');
+    //res.status(404).render('page_404');
+    return res.status(404).json('page no found dsfadsfsd');
 });   
 
 app.listen(port|| 3002, () => {

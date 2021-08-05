@@ -3,7 +3,7 @@
 
 <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/productCreate.css" />
-
+    <!--<script src="/js/editProdValidator.js"></script>-->
     <body>
         <%- include('../partials/header')%>
             <main>
@@ -16,7 +16,7 @@
                                     <h2 class="titulo">Editar Producto</h2>
                                 </div>
                                 <form action="/products/<%=product.id %>?_method=PUT" method="POST"
-                                    enctype="multipart/form-data">
+                                    enctype="multipart/form-data" id="form-edit">
                                     <article class="product-create-article">
                                         <div class="icoExit">
                                             <a href="/products">
@@ -25,24 +25,40 @@
                                         </div>
                                         <div class="product-create-file">
                                             <h2>Imagen</h2>
-                                            <img src="/Img/<%= product.file %>" alt="<%=product.name %>"
+                                            <img src="/Img/product/<%= product.image[0].name %>" alt="<%=product.name %>"
                                                 class="detail-product_img">
                                             <input type="file" name="file" value="<%=product.file %>">
+                                            <input type="hidden" name="oldImage" value="<%= product.image[0] %>">
                                         </div>
                                         <div class="setction">
                                             <div class="product-create-category">
-                                                <h2>Categoria</h2>
-                                                <select class="product-form-select" name="category" id="category">
-                                                    <option>Selecciona una categoria</option>
-                                                    <option value="1">vinos</option>
-                                                    <option value="2">Espumantes</option>
-                                                    <option value="3">cervezas</option>
+                                                <select name="category_id">
+                                                    <% categories.forEach(oneCategory => { %>
+                                                    <option 
+                                                        value="<%= oneCategory.id %>"
+                                                        <%= oneCategory.id === product.category_id ? 'selected' : null %> 
+                                                    >
+                                                        <%= oneCategory.name %> 
+                                                    </option>
+                                                    <% }) %>
+                                                </select>
+                                            </div>
+                                            <div class="product-create-category">
+                                                <select name="brand_id">
+                                                    <% brands.forEach(oneBrand => { %>
+                                                    <option 
+                                                        value="<%= oneBrand.id %>"
+                                                        <%= oneBrand.id === product.brand_id ? 'selected' : null %> 
+                                                    >
+                                                        <%= oneBrand.name %> 
+                                                    </option>
+                                                    <% }) %>
                                                 </select>
                                             </div>
                                             <div class="product-create-name">
                                                 <h2>Nombre</h2>
-                                                <input type="text" name="name" placeholder="Nombre" required
-                                                    maxlength="30" value="<%=product.name %>">
+                                                <input type="text" name="name" placeholder="Nombre" 
+                                                    maxlength="30" id="edit-name" value="<%=product.name %>">
                                             </div>
                                             <div class="product-create-descripcion">
                                                 <h2>Descripcion</h2>
@@ -52,12 +68,12 @@
                                             <div class="product-create-row">
                                                 <div class="product-create-stock">
                                                     <h2>Stock:</h2>
-                                                    <input type="number" name="stock" class="edit-stock" required
+                                                    <input type="number" name="stock" class="edit-stock" 
                                                         maxlength="6" value="<%=product.stock %>">
                                                 </div>
                                                 <div class="product-create-price">
                                                     <h2>Precio:</h2>
-                                                    <input type='text' name="price" required placeholder="$"
+                                                    <input type='text' name="price" id="edit-price"  placeholder="$"
                                                         maxlength="6" value="<%=product.price %>">
                                                 </div>
                                             </div>
@@ -70,10 +86,14 @@
                                     method="POST">
                                     <button type="submit" class="btn-delete">Borrar</button>
                                 </form>
-                            </div>   
+                            </div>  
+                            <div class="errores">
+                                <ul></ul>
+                            </div> 
                             </article>
                             </div>
                         </div>
+
                     </section>
                 </div>
             </main>
@@ -84,7 +104,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#category > option[value="<%=product.category %>"]').attr('selected', 'selected');
+            $('#category > option[value="<%=product.category.id %>"]').attr('selected', 'selected');
+            $('#brand > option[value="<%=product.brand.id %>"]').attr('selected', 'selected');
         });
     </script>
 

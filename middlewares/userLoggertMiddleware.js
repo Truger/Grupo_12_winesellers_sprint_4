@@ -1,14 +1,13 @@
-let jsonDatabaseP = require('../model/jsonDatabase');
-let model = jsonDatabaseP('userDataBase')
+const {User} = require('../database/models')
 
-function userLoggertMiddleware(req, res, next){
+async function userLoggertMiddleware(req, res, next){
     res.locals.isLogged = false;
 
         let emailInCookie = req.cookies.userEmail;
       
     if(emailInCookie){
         console.log('el email del user es : '+emailInCookie)
-        userFromCookie = model.findemail(emailInCookie);
+        userFromCookie =await User.findOne({where:{email:emailInCookie}});
 
         if(userFromCookie){
           delete userFromCookie.password;
