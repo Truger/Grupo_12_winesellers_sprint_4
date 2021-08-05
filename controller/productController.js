@@ -99,7 +99,6 @@ const controller = {
     },
 
     update: async (req, res) => {
-        console.log(req.body)
         let errors = validationResult(req);
         console.log(errors)
         let product = req.body;
@@ -129,12 +128,13 @@ const controller = {
           }
         
          }else{
-            return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate}); 
+
+            return res.redirect(`/products/${req.params.id}/edit`);
          }
         
         }else{
-            return res.render(`product/${id}/edit`, {errors: errors.mapped(), 'product':productUpdate});
-        }  
+            return res.redirect(`/products/${req.params.id}/edit`);
+           }  
          
     },
 
