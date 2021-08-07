@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "method-override": "^3.0.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.12",
     "sequelize-cli": "^6.2.0"
   }
 }

@@ -2,8 +2,10 @@
 <html lang="en">
 
 <%- include('../partials/head')%>
-
+<script  src="\js\validations\validations-register.js"></script>
 <body>
+
+    
     <div id="wrapper">
         <div class="headero">
             <%- include('../partials/header')%>
@@ -16,7 +18,8 @@
                         <h2 class="titulo">.Registrate</h2>
                     </div>
                     <div class='register'>
-                        <form action="/user/register" method="POST"
+                        
+                        <form action="/user/register" id="formregistro" method="POST"
                             enctype="multipart/form-data">
                             <div class="r-name">
                                 <input type='text' name='name' placeholder='nombre:'
@@ -89,6 +92,7 @@
                             <button type='submit' class="btn-registrar">Registrar</button>
                             <br><br>
                             <div class="r-registrado">Ya estas registrado? <a href='/user/login'>Inicia Secion</a></div>
+                            <div class= "errores"> <ul></ul> </div>
                         </form>
                     </div>
 
@@ -97,8 +101,13 @@
         </div>
         <div class="footero">
             <%- include('../partials/footer')%>
-        </div>
+           
     </div>
+
+    
+        </div>
 </body>
+
+
 
 </html>
