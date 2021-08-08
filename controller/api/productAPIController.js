@@ -33,10 +33,10 @@ const controller = {
     lastProduct: async (req, res) => {
         try {
             let products = await Product.findAll({include: ['brand','category','image']})
-            let product = products[0]
+            let product = products[products.length -1]
             let image = product.image[0].name;
             let productLiteral = {product}; 
-            productLiteral.url = req.headers.host +'/Img/product/'+ image;
+            productLiteral.url ='http://'+ req.headers.host +'/Img/product/'+ image;
             console.log(product)
             return res.status(200).json(productLiteral);
         } catch (error) {

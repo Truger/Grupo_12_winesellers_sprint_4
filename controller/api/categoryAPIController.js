@@ -1,21 +1,22 @@
-const { Category } = require("../../database/models");
+const { Category, Product } = require("../../database/models");
 const { validationResult } = require("express-validator");
 
 
 const controller = {
 
-  index: (req, res) => {
-    Category
-    .findAll()
-    .then(Category => {
-        return res.status(200).json(Category);
-    })
-    .catch(error => {
-        console.log(error)
-        return res.status(401).json(error);
-    });
+  index:async (req, res) => {
 
-}
+ let categories = await Category.findAll();
+ let arraycategories = [];
+for(let i = 0; i < categories.length; i++){  
+         let category = categories[i];
+         let categoryLiteral = {category};   
+         let product = await Product.findAndCountAll({where:{category_id:categories[i].id}});
+         categoryLiteral.count = product.count;
+        arraycategories.push(categoryLiteral);
+ }
+ return res.status(200).json(arraycategories);
+} 
 };
 
 module.exports = controller;
