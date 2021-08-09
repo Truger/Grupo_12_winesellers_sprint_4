@@ -27,14 +27,34 @@ console.log (email.value)
     feedbackElement.innerText = feedback; 
     }
 
-    email.addEventListener('blur', validateEmail);
-    /*password.addEventListener('blur', validatePassword);*/
+    let validatePassword = () => {
+        let feedback = "";
+        let feedbackElement = password.nextElementSibling;
+    
+        if (password.value.trim() == "") {
+            feedback = "La contraseña no puede estar vacia"
+        } else if (password.value.length < 8) {
+            feedback = "La contraseña es incorrecta"
+        }
+    
+        if (feedback) {
+            password.classList.add('error-input');
+            errors.password = feedback;
+        }else {
+            password.classList.remove('error-input');
+            delete errors.password;
+        }
+    
+        feedbackElement.innerText = feedback;
+    }
 
-// Si submit de form se ejecutan funciones de validacion
+    email.addEventListener('blur', validateEmail);
+    password.addEventListener('blur', validatePassword);
+
 formulario.addEventListener('submit', (e) => {
     validateEmail();
-    /*validatePassword();*/
-    // si existen errores prevent default
+    validatePassword();
+    
     if (Object.keys(errors).length) {
         console.log(errors);
         e.preventDefault();

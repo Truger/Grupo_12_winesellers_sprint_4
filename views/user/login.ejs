@@ -32,6 +32,12 @@
                               </div>
                             <div class="r-password">
                                 <input type='password' name='password' id="login-password" placeholder='admin123:'/>
+                                <% if (locals.errors && errors.password) { %>
+                                    <p class="inputError">
+                                        <%= errors.password.msg %>
+                                    </p>
+                                    <% } %>
+                                    <p></p>
                             </div>
                             <div class="r-checkbox">
                                 <label class="check"><input type="checkbox" name="remember" value="guardar">Recordar

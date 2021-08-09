@@ -1,46 +1,108 @@
 window.addEventListener("load", function() {
     let formulario         = document.querySelector("#form-edit");
-
     let productName        = document.querySelector("#edit-name");
     let productDescription = document.querySelector("#descripction");   
     let productPrice       = document.querySelector("#edit-price");
+    let img                = document.querySelector("#file");
+    let errors = {}
     
-    formulario.addEventListener("submit", function (e) {
-  
-        let errores = [];
-        errores.push({
-            field:"name",
-            erro:"el campo no puede ser vacio"
-        })
+    let validateProductName = () => {
+        let feedback = "";
+        let feedbackElement = productName.nextElementSibling;
     
-        if(productName.value == '' ){
-            errores.push('El nombre no puede estar vacío');
-        }else if (productName.value.length < 7) {
-            errores.push('El nombre debe contener al menos 6 caracteres');
+        if (productName.value.trim() == "") {
+            feedback = "El nombre no puede estar vacio"
+        }else if (productName.value.length < 8) {
+            feedback = "El nombre debe tener mas de 8 caracteres "
         }
 
-        if(productDescription.value == '' ){
-            errores.push ('La descripcion no puede estar vacia');
-        }else if (productDescription.value.length < 16) {
-            errores.push('La descripcion del producto debe contener al menos 16 caracteres');
+        if (feedback) {
+            productName.classList.add('error-input');
+            errors.productName = feedback;
+        }else {
+            productName.classList.remove('error-input');
+            delete errors.productName;
         }
 
-        if(productPrice.value == '' ){
-            errores.push('El precio no puede estar vacío');
-        }else if (productPrice.value <= 0) {
-            errores.push('El valor no puede ser 0');
-        };
+        feedbackElement.innerText = feedback;
+    }
+    let validateProductDescription = () => {
+        let feedback = "";
+        let feedbackElement = productDescription.nextElementSibling;
+    
+        if (productDescription.value.trim() == "") {
+            feedback = "La descripcion no puede estar vacia"
+        }else if (productDescription.value.length < 15) {
+            feedback = "La descripcion debe tener al menos 15 caracteres"
+        }
+    
+        if (feedback) {
+            productDescription.classList.add('error-input');
+            errors.productDescription = feedback;
+        }else {
+            productDescription.classList.remove('error-input');
+            delete errors.productDescription;
+        }
+    
+        feedbackElement.innerText = feedback;
+    }
 
-        if (errores.length > 0) {
+    let validateProductPrice = () => {
+        let feedback = "";
+        let feedbackElement = productPrice.nextElementSibling;
+    
+        if (productPrice.value == "" || precio.value == 0) {
+            feedback = "Debe colocar un precio mayor a 0"
+        }
+    
+        if (feedback) {
+            productPrice.classList.add('error-input');
+            errors.productPrice = feedback;
+        }else {
+            productPrice.classList.remove('error-input');
+            delete errors.productPrice;
+        }
+    
+        feedbackElement.innerText = feedback;
+    }
+
+    let validateImg = () => {
+        let feedback = "";
+        let feedbackElement = img.nextElementSibling;
+        let acceptedExtensions = ['jpg', 'png', 'jpeg', 'gif'];
+        let filename = imagen.value;
+        let fileExtension = filename.split(".").pop();
+    
+        if (img.files[0] == undefined) {
+            feedback = "Debes cargar una imagen"
+        }else if(!acceptedExtensions.includes(fileExtension)) {
+            feedback = `Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`
+        }
+    
+        if (feedback) {
+            img.classList.add('error-input');
+            errors.img = feedback;
+        }else {
+            img.classList.remove('error-input');
+            delete errors.img;
+        }
+    
+        feedbackElement.innerText = feedback;
+    }
+
+    productName.addEventListener('blur', validateProductName);
+    productDescription.addEventListener('blur', validateProductDescription);
+    productPrice.addEventListener('blur', validateProductPrice);
+    img.addEventListener('blur', validateImg);
+
+    formulario.addEventListener('submit', (e) => {
+        validateProductName();
+        validateProductDescription();
+        validateProductPrice();
+        validateImg();
+
+        if (Object.keys(errors).length) {
             e.preventDefault();
-   
-            let ulErrores= document.querySelector("div.errores ul");
-            for (let i = 0; i < errores.length; i++) {
-                ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
-                
-            }
-            errores.length=0;
-        }
-    }); 
-
+        } 
+    });
 });

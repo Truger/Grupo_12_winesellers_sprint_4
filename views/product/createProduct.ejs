@@ -2,6 +2,7 @@
 <html lang="en">
 
 <%- include('../partials/head')%>
+<script src="/js/createProdValidator.js"></script>
 <link rel="stylesheet" href="/css/productCreate.css" />
     <body>
         <%- include('../partials/header')%>
@@ -21,10 +22,10 @@
                             </div>
                             <div class="product-create-file">
                                 <h2>Imagen</h2>
-                                <input type="file" name="file">
-                                <% if (locals.errors && errors.file){ %>
-                                    <div class="text-danger">
-                                        <%= errors.file.msg %>
+                                <input type="file" name="file" id="file">
+                                <% if (locals.errors && errors.img){ %>
+                                    <div class="inputError">
+                                        <%= errors.img.msg %>
                                     </div>
                                     <% } %>
                             </div>
@@ -57,9 +58,9 @@
                                     <h2>Nombre</h2>
                                     <input type="text" name="name" id="prod-name" value="<%= locals.old && old.name ? old.name : '' %>"
                                         placeholder="Nombre" maxlength="30">
-                                    <% if (locals.errors && errors.name){ %>
-                                        <div class="text-danger">
-                                            <%= errors.name.msg %>
+                                    <% if (locals.errors && errors.productName){ %>
+                                        <div class="inputError">
+                                            <%= errors.productName.msg %>
                                         </div>
                                         <% } %>
                                 </div>
@@ -67,9 +68,9 @@
                                     <h2>Descripcion</h2>
                                     <textarea name="description" id="descripction" cols="30"
                                         rows="10"><%= locals.old && old.description ? old.description : '' %></textarea>
-                                    <% if (locals.errors && errors.description){ %>
-                                        <div class="text-danger">
-                                            <%= errors.description.msg %>
+                                    <% if (locals.errors && errors.productDescription){ %>
+                                        <div class="inputError">
+                                            <%= errors.productDescription.msg %>
                                         </div>
                                         <% } %>
                                 </div>
@@ -89,9 +90,9 @@
                                         <input type='number' name="price" id="prod-price"
                                         value="<%= locals.old && old.price ? old.price : '' %>" placeholder="$"
                                         maxlength="6">
-                                    <% if (locals.errors && errors.price){ %>
-                                        <div class="text-danger">
-                                            <%= errors.price.msg %>
+                                    <% if (locals.errors && errors.productPrice){ %>
+                                        <div class="inputError">
+                                            <%= errors.productPrice.msg %>
                                         </div>
                                         <% } %>
                                     </div>
