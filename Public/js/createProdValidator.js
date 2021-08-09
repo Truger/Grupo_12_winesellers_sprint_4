@@ -51,7 +51,7 @@ window.addEventListener("load", function() {
         let feedback = "";
         let feedbackElement = productPrice.nextElementSibling;
     
-        if (productPrice.value == "" || precio.value == 0) {
+        if (productPrice.value == "" || productPrice.value == 0) {
             feedback = "Debe colocar un precio mayor a 0"
         }
     
@@ -70,7 +70,7 @@ window.addEventListener("load", function() {
         let feedback = "";
         let feedbackElement = img.nextElementSibling;
         let acceptedExtensions = ['jpg', 'png', 'jpeg', 'gif'];
-        let filename = imagen.value;
+        let filename = img.value;
         let fileExtension = filename.split(".").pop();
     
         if (img.files[0] == undefined) {

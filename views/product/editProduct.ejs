@@ -28,12 +28,13 @@
                                             <img src="/Img/product/<%= product.image[0].name %>" alt="<%=product.name %>"
                                                 class="detail-product_img">
                                             <input type="file" name="file" id="file" value="<%=product.file %>">
-                                            <input type="hidden" name="oldImage" value="<%= product.image[0] %>">
-                                            <% if (locals.errors && errors.img){ %>
-                                                <div class="inputError">
+                                            <% if (locals.errors && errors.img) { %>
+                                                <p class="inputError">
                                                     <%= errors.img.msg %>
-                                                </div>
+                                                </p>
                                                 <% } %>
+                                                <p></p>
+                                            <input type="hidden" name="oldImage" value="<%= product.image[0] %>">
                                         </div>
                                         <div class="setction">
                                             <div class="product-create-category">
@@ -64,21 +65,23 @@
                                                 <h2>Nombre</h2>
                                                 <input type="text" name="name" placeholder="Nombre" 
                                                     maxlength="30" id="edit-name" value="<%=product.name %>">
-                                                    <% if (locals.errors && errors.productName){ %>
-                                                        <div class="inputError">
+                                                    <% if (locals.errors && errors.productName) { %>
+                                                        <p class="inputError">
                                                             <%= errors.productName.msg %>
-                                                        </div>
+                                                        </p>
                                                         <% } %>
+                                                        <p></p>
                                             </div>
                                             <div class="product-create-descripcion">
                                                 <h2>Descripcion</h2>
                                                 <textarea name="description" id="descripction" cols="30"
                                                     rows="10"><%=product.description %></textarea>
-                                                    <% if (locals.errors && errors.productDescription){ %>
-                                                        <div class="inputError">
+                                                    <% if (locals.errors && errors.productDescription) { %>
+                                                        <p class="inputError">
                                                             <%= errors.productDescription.msg %>
-                                                        </div>
+                                                        </p>
                                                         <% } %>
+                                                        <p></p>
                                             </div>
                                             <div class="product-create-row">
                                                 <div class="product-create-stock">
@@ -90,11 +93,12 @@
                                                     <h2>Precio:</h2>
                                                     <input type='text' name="price" id="edit-price"  placeholder="$"
                                                         maxlength="6" value="<%=product.price %>">
-                                                        <% if (locals.errors && errors.productPrice){ %>
-                                                            <div class="inputError">
+                                                        <% if (locals.errors && errors.productPrice) { %>
+                                                            <p class="inputError">
                                                                 <%= errors.productPrice.msg %>
-                                                            </div>
+                                                            </p>
                                                             <% } %>
+                                                            <p></p>
                                                 </div>
                                             </div>
                                             <div class="btns">

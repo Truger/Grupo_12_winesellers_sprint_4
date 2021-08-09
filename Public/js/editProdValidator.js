@@ -1,10 +1,11 @@
 window.addEventListener("load", function() {
+    
     let formulario         = document.querySelector("#form-edit");
     let productName        = document.querySelector("#edit-name");
     let productDescription = document.querySelector("#descripction");   
     let productPrice       = document.querySelector("#edit-price");
     let img                = document.querySelector("#file");
-    let errors = {}
+    let errors = {};
     
     let validateProductName = () => {
         let feedback = "";
@@ -51,7 +52,7 @@ window.addEventListener("load", function() {
         let feedback = "";
         let feedbackElement = productPrice.nextElementSibling;
     
-        if (productPrice.value == "" || precio.value == 0) {
+        if (productPrice.value == "" || productPrice.value == 0) {
             feedback = "Debe colocar un precio mayor a 0"
         }
     
@@ -70,15 +71,16 @@ window.addEventListener("load", function() {
         let feedback = "";
         let feedbackElement = img.nextElementSibling;
         let acceptedExtensions = ['jpg', 'png', 'jpeg', 'gif'];
-        let filename = imagen.value;
+        let filename = img.value;
         let fileExtension = filename.split(".").pop();
-    
+    console.log(fileExtension)
         if (img.files[0] == undefined) {
             feedback = "Debes cargar una imagen"
         }else if(!acceptedExtensions.includes(fileExtension)) {
+            console.log("algo");
             feedback = `Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`
         }
-    
+    console.log(feedback);
         if (feedback) {
             img.classList.add('error-input');
             errors.img = feedback;

@@ -23,11 +23,12 @@
                             <div class="product-create-file">
                                 <h2>Imagen</h2>
                                 <input type="file" name="file" id="file">
-                                <% if (locals.errors && errors.img){ %>
-                                    <div class="inputError">
+                                <% if (locals.errors && errors.img) { %>
+                                    <p class="inputError">
                                         <%= errors.img.msg %>
-                                    </div>
+                                    </p>
                                     <% } %>
+                                    <p></p>
                             </div>
                             <div class="setction">
                                 <div class="product-create-category">
@@ -58,21 +59,23 @@
                                     <h2>Nombre</h2>
                                     <input type="text" name="name" id="prod-name" value="<%= locals.old && old.name ? old.name : '' %>"
                                         placeholder="Nombre" maxlength="30">
-                                    <% if (locals.errors && errors.productName){ %>
-                                        <div class="inputError">
-                                            <%= errors.productName.msg %>
-                                        </div>
-                                        <% } %>
+                                        <% if (locals.errors && errors.productName) { %>
+                                            <p class="inputError">
+                                                <%= errors.productName.msg %>
+                                            </p>
+                                            <% } %>
+                                            <p></p>
                                 </div>
                                 <div class="product-create-descripcion">
                                     <h2>Descripcion</h2>
                                     <textarea name="description" id="descripction" cols="30"
                                         rows="10"><%= locals.old && old.description ? old.description : '' %></textarea>
-                                    <% if (locals.errors && errors.productDescription){ %>
-                                        <div class="inputError">
-                                            <%= errors.productDescription.msg %>
-                                        </div>
-                                        <% } %>
+                                        <% if (locals.errors && errors.productDescription) { %>
+                                            <p class="inputError">
+                                                <%= errors.productDescription.msg %>
+                                            </p>
+                                            <% } %>
+                                            <p></p>
                                 </div>
                                 <div class="product-create-row">
                                     <div class="product-create-stock">
@@ -90,11 +93,12 @@
                                         <input type='number' name="price" id="prod-price"
                                         value="<%= locals.old && old.price ? old.price : '' %>" placeholder="$"
                                         maxlength="6">
-                                    <% if (locals.errors && errors.productPrice){ %>
-                                        <div class="inputError">
-                                            <%= errors.productPrice.msg %>
-                                        </div>
-                                        <% } %>
+                                        <% if (locals.errors && errors.productPrice) { %>
+                                            <p class="inputError">
+                                                <%= errors.productPrice.msg %>
+                                            </p>
+                                            <% } %>
+                                            <p></p>
                                     </div>
                                 </div>
                                 <div class="btns">
