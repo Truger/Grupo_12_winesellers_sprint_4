@@ -13,6 +13,8 @@ const authMiddleware = require('../../middlewares/authMiddlewar');
 
 router.get('/', productController.index);
 
+router.get('/last', productController.lastProduct)
+
 router.post('/',
          authMiddleware, 
          upload.single('file'),
@@ -23,6 +25,7 @@ router.get('/:id/edit',
        // authMiddleware,
         productController.edit
         );
+
 router.get('/:id',
          productController.detail
          );

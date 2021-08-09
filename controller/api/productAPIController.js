@@ -9,7 +9,19 @@ const controller = {
            include: ['brand','category','image']
         })
         .then(products => {
-            return res.status(200).json(products );
+            let productArray =[];
+            products.forEach(element => {
+                let product = {
+                    name: element.name,
+                    category: element.category.name,
+                    brand: element.brand.name,
+                    description: element.description,
+                    url:'http://'+req.headers.host +'/Img/product/'+ element.image[0].name
+                }
+                console.log(product)
+                productArray.push(product);
+            });
+            return res.status(200).json(productArray);
         })
         .catch(error => {
             console.log(error)
@@ -17,6 +29,21 @@ const controller = {
         });
 
     },
+
+    lastProduct: async (req, res) => {
+        try {
+            let products = await Product.findAll({include: ['brand','category','image']})
+            let product = products[products.length -1]
+            let image = product.image[0].name;
+            let productLiteral = {product}; 
+            productLiteral.url ='http://'+ req.headers.host +'/Img/product/'+ image;
+            console.log(product)
+            return res.status(200).json(productLiteral);
+        } catch (error) {
+            return res.status(401).json(error);
+        }
+
+   },
 
     create:async (req, res) => {
         try {
@@ -59,7 +86,11 @@ const controller = {
     detail:async (req, res) => {
         try {
             let product = await Product.findByPk(req.params.id, { include: ['brand', 'category','image'] });
-            return res.status(200).json(product);
+            let image = product.image[0].name;
+            let productLiteral = {product}; 
+            productLiteral.url = req.headers.host +'/Img/product/'+ image;
+            console.log(product)
+            return res.status(200).json(productLiteral);
         } catch (error) {
             return res.status(401).json(error);
         }
