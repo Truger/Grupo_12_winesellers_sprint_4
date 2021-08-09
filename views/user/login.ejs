@@ -2,7 +2,7 @@
 <html lang="en">
 
 <%- include ('../partials/head') %>
-<script src="/js/loginValidator.js"></script>
+<script src="/js/validacionLogin.js"></script>
 <body>
     <div id="wrapper">
         <div class="headero">
@@ -23,6 +23,12 @@
                         <form action="/user/loguear" method="POST" class="form-login" id="form-login">
                             <div class="r-name">
                                 <input type='email' name='email' id="login-email" laceholder='example@gmail.com:' value="admin@gmail.com"/>
+                                <% if (locals.errors && errors.email) { %>
+                                    <p class="inputError">
+                                        <%= errors.email.msg %>
+                                    </p>
+                                    <% } %>
+                                    <p></p>
                               </div>
                             <div class="r-password">
                                 <input type='password' name='password' id="login-password" placeholder='admin123:'/>
