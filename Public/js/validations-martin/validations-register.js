@@ -1,12 +1,13 @@
 window.addEventListener("load", function(){   
 
-    let formulario = document.querySelector("#formregistro");
-    let nombre = document.querySelector("#register-name");
-    let apellido = document.querySelector("#register-lastName");
-    let email = document.querySelector("#register-email");
-    let password = document.querySelector("#register-password");
+    let formulario     = document.querySelector("#formregistro");
+    let nombre         = document.querySelector("#register-name");
+    let apellido       = document.querySelector("#register-lastName");
+    let email          = document.querySelector("#register-email");
+    let password       = document.querySelector("#register-password");
     let passwordRepeat = document.querySelector("#register-passwordRepeat");
-    let errors = [];
+    let imagen         = document.querySelector("#register-file");
+    let errors         = [];
 
     // PARA NOMBRE
    let validateNombre= function () {
@@ -118,6 +119,33 @@ window.addEventListener("load", function(){
 
 
     //PARA CONFIRMAR FOTO
+ 
+    let validateImagen = () => {
+        let feedback = "";
+        let feedbackElement = imagen.nextElementSibling;
+        let acceptedExtensions = ['jpg', 'png', 'jpeg', 'gif'];
+        let filename = imagen.value;
+        let fileExtension = filename.split(".").pop();
+    
+        if (imagen.files[0] == undefined) {
+            feedback = "Debes cargar una imagen"
+        }else if(!acceptedExtensions.includes(fileExtension)) {
+            feedback = `Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`
+        }
+    
+        if (feedback) {
+            imagen.classList.add('error-input');
+            errors.imagen = feedback;
+        }else {
+            imagen.classList.remove('error-input');
+            delete errors.imagen;
+        }
+    
+        feedbackElement.innerText = feedback;
+    }
+
+    imagen.addEventListener('blur', validateImagen);
+
 
 // Si submit de form se ejecutan funciones de validacion
     formulario.addEventListener('submit', (e) => {
@@ -126,6 +154,7 @@ window.addEventListener("load", function(){
         validateEmail();
         validatePassword();
         ValidatePasswordRepeat();
+        validateImagen();
     
         // si existen errores prevent default
         if (Object.keys(errors).length) {

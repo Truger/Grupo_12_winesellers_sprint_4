@@ -59,9 +59,15 @@
                                     <% } %>
                                     <p></p>
                             </div>
-                            <div class="image-perfil" id= "image-perfil">
+                            <div class="image-perfil" >
                                 <label for="" class="titulo">Foto de Perfil</label>
-                                <input type="file" name="file">
+                                <input type="file" name="file" id="register-file">
+                                <% if (locals.errors && errors.img) { %>
+                                    <p class="inputError">
+                                        <%= errors.img.msg %>
+                                    </p>
+                                    <% } %>
+                                    <p></p>
                                
                             </div>
                             <div class="r-password">
