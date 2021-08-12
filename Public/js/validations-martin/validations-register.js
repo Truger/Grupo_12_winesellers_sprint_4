@@ -4,8 +4,8 @@ window.addEventListener("load", function(){
     let nombre         = document.querySelector("#register-name");
     let apellido       = document.querySelector("#register-lastName");
     let email          = document.querySelector("#register-email");
-    let password       = document.querySelector("#register-password");
-    let passwordRepeat = document.querySelector("#register-passwordRepeat");
+    let password       = document.querySelector("#password");
+    let passwordRepeat = document.querySelector("#passwordRepeat");
     let imagen         = document.querySelector("#register-file");
     let errors         = [];
 
